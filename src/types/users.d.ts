@@ -1,7 +1,7 @@
 declare global {
     interface ICustomer {
         customerId: number
-        fullName: string
+        name: string
         createdAt: string
         email?: string
         avatar?: string
@@ -10,30 +10,28 @@ declare global {
 
     interface IStaff {
         staffId: number
-        fullName: string
+        name: string
         createdAt: string
         email?: string
         avatar?: string
         isActive?: boolean
 
         roleId: number
-        role: Partial<IStaffRole> | string
-        permissions: string[]
+        role?: string
         createdBy?: number
         createdByStaff?: Partial<IStaff> | string
     }
 
-    interface IStaffRole {
-        roleId: number
-        name: string
-        isImmutable: boolean
-        permissions?: (string | number | IPermission)[]
-    }
-
-    interface IPermission {
-        permissionId: number
-        name: string
-        code: string
+    interface ICustomerAddress {
+        addressId: number
+        customerId: number
+        recipientName: string
+        phoneNumber: string
+        city: string
+        ward: string
+        addressLine: string
+        isDefault: boolean
+        customer?: Partial<ICustomer>
     }
 }
 

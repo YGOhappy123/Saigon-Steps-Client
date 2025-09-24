@@ -38,13 +38,8 @@ export const DEFAULT_RESPONSE_ERROR_MESSAGE = 'Xảy ra lỗi không xác địn
 
 export const INTRODUCTION_VIDEO_URL = 'https://youtube.com'
 
-export const AUTH_CAROUSEL_IMAGES = []
+export const AUTH_CAROUSEL_IMAGES = ['https://i.pinimg.com/originals/bc/38/2e/bc382ee64cd5d4030572692aa76cecf8.gif']
 
-export const AUTH_CAROUSEL_VIDEOS = [
-    {
-        source: './videos/jelly-fish.mp4',
-        type: 'video/mp4'
-    }
-]
+export const AUTH_CAROUSEL_VIDEOS = []
 
 export const PHONE_REGEX = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/

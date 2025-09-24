@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import { Provider as ReduxProvider } from 'react-redux'
 import { RouterProvider } from 'react-router-dom'
+import { GoogleOAuthProvider } from '@react-oauth/google'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react'
@@ -17,14 +18,16 @@ const persistor = persistStore(store)
 const queryClient = new QueryClient()
 
 createRoot(document.getElementById('root')!).render(
-    <ReduxProvider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-            <QueryClientProvider client={queryClient}>
-                <ThemeProvider>
-                    <RouterProvider router={getRouter(parsedEnv.VITE_NODE_ENV)} />
-                </ThemeProvider>
-            </QueryClientProvider>
-        </PersistGate>
-        <ToastContainer />
-    </ReduxProvider>
+    <GoogleOAuthProvider clientId={parsedEnv.VITE_GG_CLIENT_ID}>
+        <ReduxProvider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+                <QueryClientProvider client={queryClient}>
+                    <ThemeProvider>
+                        <RouterProvider router={getRouter(parsedEnv.VITE_NODE_ENV)} />
+                    </ThemeProvider>
+                </QueryClientProvider>
+            </PersistGate>
+            <ToastContainer />
+        </ReduxProvider>
+    </GoogleOAuthProvider>
 )

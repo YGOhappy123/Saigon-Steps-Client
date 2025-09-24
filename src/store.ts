@@ -2,16 +2,18 @@ import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } fro
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import storage from 'redux-persist/lib/storage'
 import authReducer from '@/slices/authSlice'
+import appReducer from '@/slices/appSlice'
 
 const persistConfig = {
     key: 'saigon_steps_client',
     version: 1,
     storage,
-    whitelist: ['auth']
+    whitelist: ['auth', 'app']
 }
 
 const combinedReducers = combineReducers({
-    auth: authReducer
+    auth: authReducer,
+    app: appReducer
 })
 
 export const store = configureStore({

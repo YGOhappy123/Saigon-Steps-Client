@@ -3,7 +3,7 @@ import cookies from '@/libs/cookies'
 
 export interface AuthState {
     isLogged: boolean
-    user: IStaff | null
+    user: ICustomer | null
 }
 
 const initialState: AuthState = {
@@ -15,15 +15,15 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        setUser: (state, { payload }: { payload: IStaff }) => {
+        setUser: (state, { payload }: { payload: ICustomer }) => {
             state.user = payload
         },
         setLogged: (state, { payload }: { payload: boolean }) => {
             state.isLogged = payload
         },
         signOut: () => {
-            cookies.remove('access_token_fes', { path: '/' })
-            cookies.remove('refresh_token_fes', { path: '/' })
+            cookies.remove('access_token_fec', { path: '/' })
+            cookies.remove('refresh_token_fec', { path: '/' })
             return initialState
         }
     }
