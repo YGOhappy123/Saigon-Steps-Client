@@ -111,6 +111,7 @@ const SignUpForm = ({ changeFormType }: SignUpFormProps) => {
                                     <PasswordInput
                                         placeholder="Mật khẩu..."
                                         className="h-12 rounded border-2 font-semibold"
+                                        iconClassname="text-primary"
                                         {...field}
                                     />
                                 </FormControl>
@@ -128,6 +129,7 @@ const SignUpForm = ({ changeFormType }: SignUpFormProps) => {
                                     <PasswordInput
                                         placeholder="Nhập lại mật khẩu..."
                                         className="h-12 rounded border-2 font-semibold"
+                                        iconClassname="text-primary"
                                         {...field}
                                     />
                                 </FormControl>

@@ -75,6 +75,7 @@ const ResetPasswordForm = ({ changeFormType }: ResetPasswordFormProps) => {
                                     <PasswordInput
                                         placeholder="Mật khẩu..."
                                         className="h-12 rounded border-2 font-semibold"
+                                        iconClassname="text-primary"
                                         {...field}
                                     />
                                 </FormControl>
@@ -95,6 +96,7 @@ const ResetPasswordForm = ({ changeFormType }: ResetPasswordFormProps) => {
                                     <PasswordInput
                                         placeholder="Nhập lại mật khẩu..."
                                         className="h-12 rounded border-2 font-semibold"
+                                        iconClassname="text-primary"
                                         {...field}
                                     />
                                 </FormControl>

@@ -72,6 +72,7 @@ const SignInForm = ({ changeFormType }: SignInFormProps) => {
                                     <PasswordInput
                                         placeholder="Mật khẩu..."
                                         className="h-12 rounded border-2 font-semibold"
+                                        iconClassname="text-primary"
                                         {...field}
                                     />
                                 </FormControl>

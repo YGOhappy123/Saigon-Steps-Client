@@ -4,8 +4,12 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/libs/shadcn-ui'
 
-const PasswordInput = React.forwardRef<HTMLInputElement, React.ComponentProps<'input'>>(
-    ({ className, ...props }, ref) => {
+interface PasswordInputProps extends React.ComponentProps<'input'> {
+    iconClassname?: string
+}
+
+const PasswordInput = React.forwardRef<HTMLInputElement, PasswordInputProps>(
+    ({ className, iconClassname, ...props }, ref) => {
         const [showPassword, setShowPassword] = React.useState(false)
         const disabled = props.value === '' || props.value === undefined || props.disabled
 
@@ -26,9 +30,9 @@ const PasswordInput = React.forwardRef<HTMLInputElement, React.ComponentProps<'i
                     disabled={disabled}
                 >
                     {showPassword ? (
-                        <EyeOffIcon className="h-4 w-4" aria-hidden="true" />
+                        <EyeOffIcon className={cn(`h-4 w-4 ${iconClassname}`)} aria-hidden="true" />
                     ) : (
-                        <EyeIcon className="h-4 w-4" aria-hidden="true" />
+                        <EyeIcon className={cn(`h-4 w-4 ${iconClassname}`)} aria-hidden="true" />
                     )}
                     <span className="sr-only">{showPassword ? 'Hide password' : 'Show password'}</span>
                 </Button>
