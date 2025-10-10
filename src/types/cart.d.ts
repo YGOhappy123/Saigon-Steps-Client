@@ -4,6 +4,7 @@ declare global {
         customerId: number
         status: CartStatus
         updatedAt: string
+
         items: ICartItem[]
     }
 
@@ -13,7 +14,7 @@ declare global {
         quantity: number
     }
 
-    type CartStatus = 'Active' | 'Converted' | 'Abandoned'
+    type CartStatus = 'ACTIVE' | 'CONVERTED' | 'ABANDONED'
 }
 
 export {}

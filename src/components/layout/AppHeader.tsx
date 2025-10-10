@@ -9,7 +9,7 @@ import AppLogo from '@/components/common/AppLogo'
 // import CustomerCart from '@/components/layout/CustomerCart'
 import ThemeToggler from '@/components/common/ThemeToggler'
 import toastConfig from '@/configs/toast'
-// import HeaderSearchbar from '@/components/layout/HeaderSearchbar'
+import HeaderSearchbar from '@/components/layout/HeaderSearchbar'
 
 const AppHeader = () => {
     const dispatch = useDispatch()
@@ -23,7 +23,7 @@ const AppHeader = () => {
                     <AppLogo className="px-0" />
                 </Link>
 
-                {/* <HeaderSearchbar /> */}
+                <HeaderSearchbar />
 
                 <div className="flex items-center gap-2">
                     {isLogged ? (

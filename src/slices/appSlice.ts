@@ -104,7 +104,7 @@ export const getAddresses = createAsyncThunk(
     async ({ axios }: { axios: AxiosInstance }, { rejectWithValue }) => {
         try {
             const response = await axios.get<IResponseData<ICustomerAddress[]>>(
-                `/customers/address/my-addresses?sort=${JSON.stringify({ isDefault: 'DESC' })}`
+                `/customers/address?sort=${JSON.stringify({ isDefault: 'desc' })}`
             )
             return response.data
         } catch (error: any) {

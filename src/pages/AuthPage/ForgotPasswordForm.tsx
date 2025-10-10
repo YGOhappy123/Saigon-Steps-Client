@@ -46,7 +46,7 @@ const ForgotPasswordForm = ({ changeFormType }: ForgotPasswordFormProps) => {
                                 <FormControl>
                                     <Input
                                         placeholder="Email..."
-                                        className="h-12 rounded border-2 font-semibold"
+                                        className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         {...field}
                                     />
                                 </FormControl>

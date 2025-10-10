@@ -43,3 +43,24 @@ export const AUTH_CAROUSEL_IMAGES = ['https://i.pinimg.com/originals/bc/38/2e/bc
 export const AUTH_CAROUSEL_VIDEOS = []
 
 export const PHONE_REGEX = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+
+export const SHOE_GENDER_MAP: { [key in ShoeGender]: string } = {
+    MALE: 'Nam',
+    FEMALE: 'Nữ',
+    UNISEX: 'Unisex'
+}
+
+export const SHOE_GENDER_OPTIONS = Object.entries(SHOE_GENDER_MAP).map(([value, label]) => ({ value, label }))
+
+export const ORDER_STATUS_MAP: { [key in OrderStatus]: string } = {
+    PENDING: 'Chờ xử lý',
+    ACCEPTED: 'Đã xác nhận',
+    PACKED: 'Đã đóng gói',
+    DISPATCHED: 'Đang giao hàng',
+    DELIVERY_SUCCESS: 'Giao hàng thành công',
+    DELIVERY_FAILED: 'Giao hàng thất bại',
+    CANCELLED: 'Bị từ chối',
+    RETURNED: 'Đã hoàn trả'
+}
+
+export const ORDER_STATUS_OPTIONS = Object.entries(ORDER_STATUS_MAP).map(([value, label]) => ({ value, label }))

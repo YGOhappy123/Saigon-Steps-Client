@@ -5,7 +5,6 @@ declare global {
         createdAt: string
         email?: string
         avatar?: string
-        isActive?: boolean
     }
 
     interface IStaff {
@@ -14,12 +13,8 @@ declare global {
         createdAt: string
         email?: string
         avatar?: string
-        isActive?: boolean
-
         roleId: number
-        role?: string
         createdBy?: number
-        createdByStaff?: Partial<IStaff> | string
     }
 
     interface ICustomerAddress {
@@ -31,6 +26,7 @@ declare global {
         ward: string
         addressLine: string
         isDefault: boolean
+
         customer?: Partial<ICustomer>
     }
 }

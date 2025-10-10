@@ -2,14 +2,13 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useMutation } from '@tanstack/react-query'
 import { toast } from 'react-toastify'
-import dayjs from 'dayjs'
-
 import { onError } from '@/utils/errorsHandler'
 import { setLogged, setUser, signOut } from '@/slices/authSlice'
 import { resetAppState } from '@/slices/appSlice'
 import { getMappedMessage } from '@/utils/resMessageMapping'
 import useAxiosIns from '@/hooks/useAxiosIns'
 import cookies from '@/libs/cookies'
+import dayjs from '@/libs/dayjs'
 import toastConfig from '@/configs/toast'
 
 interface LoginResponse {
@@ -32,11 +31,11 @@ const authService = () => {
             const { user, accessToken, refreshToken } = res.data.data
             cookies.set('access_token_cli', accessToken, {
                 path: '/',
-                expires: new Date(dayjs(Date.now()).add(30, 'day').toISOString())
+                expires: new Date(dayjs(Date.now()).add(30, 'minutes').toISOString())
             })
             cookies.set('refresh_token_cli', refreshToken, {
                 path: '/',
-                expires: new Date(dayjs(Date.now()).add(30, 'day').toISOString())
+                expires: new Date(dayjs(Date.now()).add(30, 'days').toISOString())
             })
 
             navigate(redirectPath as string)
@@ -56,11 +55,11 @@ const authService = () => {
             const { user, accessToken, refreshToken } = res.data.data
             cookies.set('access_token_cli', accessToken, {
                 path: '/',
-                expires: new Date(dayjs(Date.now()).add(30, 'day').toISOString())
+                expires: new Date(dayjs(Date.now()).add(30, 'minutes').toISOString())
             })
             cookies.set('refresh_token_cli', refreshToken, {
                 path: '/',
-                expires: new Date(dayjs(Date.now()).add(30, 'day').toISOString())
+                expires: new Date(dayjs(Date.now()).add(30, 'days').toISOString())
             })
 
             navigate(redirectPath as string)
@@ -113,11 +112,11 @@ const authService = () => {
             const { user, accessToken, refreshToken } = res.data.data
             cookies.set('access_token_cli', accessToken, {
                 path: '/',
-                expires: new Date(dayjs(Date.now()).add(30, 'day').toISOString())
+                expires: new Date(dayjs(Date.now()).add(30, 'minutes').toISOString())
             })
             cookies.set('refresh_token_cli', refreshToken, {
                 path: '/',
-                expires: new Date(dayjs(Date.now()).add(30, 'day').toISOString())
+                expires: new Date(dayjs(Date.now()).add(30, 'days').toISOString())
             })
 
             navigate(redirectPath as string)

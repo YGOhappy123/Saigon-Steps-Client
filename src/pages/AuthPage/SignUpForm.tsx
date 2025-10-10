@@ -70,7 +70,7 @@ const SignUpForm = ({ changeFormType }: SignUpFormProps) => {
                                 <FormControl>
                                     <Input
                                         placeholder="Họ và tên..."
-                                        className="h-12 rounded border-2 font-semibold"
+                                        className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         {...field}
                                     />
                                 </FormControl>
@@ -90,7 +90,7 @@ const SignUpForm = ({ changeFormType }: SignUpFormProps) => {
                                 <FormControl>
                                     <Input
                                         placeholder="Tên đăng nhập..."
-                                        className="h-12 rounded border-2 font-semibold"
+                                        className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         {...field}
                                     />
                                 </FormControl>
@@ -110,7 +110,7 @@ const SignUpForm = ({ changeFormType }: SignUpFormProps) => {
                                 <FormControl>
                                     <PasswordInput
                                         placeholder="Mật khẩu..."
-                                        className="h-12 rounded border-2 font-semibold"
+                                        className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         iconClassname="text-primary"
                                         {...field}
                                     />
@@ -128,7 +128,7 @@ const SignUpForm = ({ changeFormType }: SignUpFormProps) => {
                                 <FormControl>
                                     <PasswordInput
                                         placeholder="Nhập lại mật khẩu..."
-                                        className="h-12 rounded border-2 font-semibold"
+                                        className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         iconClassname="text-primary"
                                         {...field}
                                     />
