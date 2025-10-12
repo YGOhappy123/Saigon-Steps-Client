@@ -1,19 +1,18 @@
 import { SiFacebook, SiYoutube, SiTiktok, SiInstagram, SiX, IconType } from '@icons-pack/react-simple-icons'
-import { House, MessageCircleMore, PencilLine, ScanBarcode, Users } from 'lucide-react'
+import { Bot, House, PencilLine, ScanBarcode, Users } from 'lucide-react'
 
 type NavigationTab = {
     label: string
     href: string
     Icon: IconType
-    authRequired?: boolean
 }
 
 export const NAVIGATION_TABS: NavigationTab[] = [
     { label: 'trang chủ', href: '/', Icon: House },
     { label: 'giới thiệu', href: '/about-us', Icon: Users },
+    { label: 'dịch vụ', href: '/our-services', Icon: PencilLine },
     { label: 'sản phẩm', href: '/products', Icon: ScanBarcode },
-    { label: 'tư vấn', href: '/profile/chat', Icon: MessageCircleMore, authRequired: true },
-    { label: 'profile', href: '/profile/edit', Icon: PencilLine, authRequired: true }
+    { label: 'tìm kiếm bằng AI', href: '/ai-search', Icon: Bot }
 ]
 
 type SocialLink = {

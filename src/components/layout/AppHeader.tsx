@@ -6,7 +6,7 @@ import { RootState } from '@/store'
 import { signOut } from '@/slices/authSlice'
 import { Button } from '@/components/ui/button'
 import AppLogo from '@/components/common/AppLogo'
-// import CustomerCart from '@/components/layout/CustomerCart'
+import CustomerCart from '@/components/layout/CustomerCart'
 import ThemeToggler from '@/components/common/ThemeToggler'
 import toastConfig from '@/configs/toast'
 import HeaderSearchbar from '@/components/layout/HeaderSearchbar'
@@ -28,13 +28,13 @@ const AppHeader = () => {
                 <div className="flex items-center gap-2">
                     {isLogged ? (
                         <>
-                            {/* <CustomerCart
+                            <CustomerCart
                                 trigger={
                                     <Button variant="ghost" size="icon">
                                         <ShoppingCart />
                                     </Button>
                                 }
-                            /> */}
+                            />
 
                             <ThemeToggler />
 

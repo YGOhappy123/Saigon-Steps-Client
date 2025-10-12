@@ -4,7 +4,6 @@ import { useQuery } from '@tanstack/react-query'
 import { twMerge } from 'tailwind-merge'
 import { Eraser, Search } from 'lucide-react'
 import { Input } from '@/components/ui/input'
-import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import { Separator } from '@/components/ui/separator'
 import useAxiosIns from '@/hooks/useAxiosIns'
 import useDebounce from '@/hooks/useDebounce'
@@ -89,7 +88,7 @@ const HeaderSearchbar = () => {
             )}
         >
             <Input
-                placeholder="Nhập tên sản phẩm..."
+                placeholder="Nhập tên sản phẩm hoặc thương hiệu..."
                 value={searchTerm}
                 ref={searchInputRef}
                 onChange={handleTyping}
@@ -163,7 +162,7 @@ type SearchResultLineProps = {
 const SearchResultLine = ({ product, isLast, handleClick }: SearchResultLineProps) => {
     const discountRate = product.discountRate ?? 0
     const price = product.price * (1 - discountRate / 100)
-    const stock = (product.productItems ?? []).reduce((total, item) => total + (item.stock ?? 0), 0)
+    const stock = (product.productItems ?? []).reduce((total, item) => total + (item.availableStock ?? 0), 0)
 
     return (
         <div key={product.rootProductId}>
@@ -190,7 +189,7 @@ const SearchResultLine = ({ product, isLast, handleClick }: SearchResultLineProp
                             {(product.brand as IProductBrand)?.name}
                         </p>
                         <p>
-                            <span className="font-medium">Số lượng tồn kho: </span>
+                            <span className="font-medium">Số lượng hiện tại: </span>
                             {stock}
                         </p>
                     </div>

@@ -11,7 +11,7 @@ import SignInForm from '@/pages/AuthPage/SignInForm'
 import SignUpForm from '@/pages/AuthPage/SignUpForm'
 import ForgotPasswordForm from '@/pages/AuthPage/ForgotPasswordForm'
 import ResetPasswordForm from '@/pages/AuthPage/ResetPasswordForm'
-import AuthCarousel from '@/components/common/AuthCarousel'
+import AuthCarousel from '@/pages/AuthPage/AuthCarousel'
 
 export type FormType = 'login' | 'register' | 'forgot' | 'reset'
 

@@ -227,7 +227,6 @@ const AddAddressDialog = ({ triggerButtonClassname, addNewAddressMutation }: Add
                                 )}
                             />
                         </div>
-
                         <Separator />
                         <DialogFooter>
                             <Button type="button" variant="outline" onClick={() => form.reset()}>

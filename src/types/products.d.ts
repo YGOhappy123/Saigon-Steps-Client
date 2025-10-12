@@ -35,7 +35,7 @@ declare global {
     interface IProductItem {
         productItemId: number
         size: string
-        stock: number
+        availableStock: number
     }
 
     interface IShoeFeature {
