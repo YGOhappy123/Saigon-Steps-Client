@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { PasswordInput } from '@/components/ui/password-input'
-import { useAudio } from '@/hooks/useAudio'
+import { useAudioContext } from '@/components/container/AudioProvider'
 import GoogleAuthButton from '@/components/common/GoogleAuthButton'
 import authService from '@/services/authService'
 
@@ -21,7 +21,7 @@ const signInFormSchema = z.object({
 
 const SignInForm = ({ changeFormType }: SignInFormProps) => {
     const { signInMutation } = authService()
-    const { playRandomKeyStrokeSound } = useAudio()
+    const { playRandomKeyStrokeSound } = useAudioContext()
 
     const form = useForm<z.infer<typeof signInFormSchema>>({
         resolver: zodResolver(signInFormSchema),

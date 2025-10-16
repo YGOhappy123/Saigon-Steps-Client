@@ -17,7 +17,7 @@ import {
     SidebarMenuSubButton
 } from '@/components/ui/sidebar'
 import { sidebarGroups, SidebarGroupData } from '@/configs/sidebarGroups'
-import SidebarUserButton from '@/components/common/SidebarUserButton'
+import SidebarUserButton from '@/components/layout/SidebarUserButton'
 import AppLogo from '@/components/common/AppLogo'
 import ConfirmationDialog from '@/components/common/ConfirmationDialog'
 import authService from '@/services/authService'

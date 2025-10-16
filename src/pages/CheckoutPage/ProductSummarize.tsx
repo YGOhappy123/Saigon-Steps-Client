@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { DetailedCart } from '@/hooks/useCustomerCart'
-import { useAudio } from '@/hooks/useAudio'
+import { useAudioContext } from '@/components/container/AudioProvider'
 import formatCurrency from '@/utils/formatCurrency'
 
 const couponFormSchema = z.object({
@@ -25,7 +25,7 @@ type ProductSummarizeProps = {
 }
 
 const ProductSummarize = ({ items, coupon, handleVerifyCoupon, handleClearCoupon }: ProductSummarizeProps) => {
-    const { playRandomKeyStrokeSound } = useAudio()
+    const { playRandomKeyStrokeSound } = useAudioContext()
     const form = useForm<z.infer<typeof couponFormSchema>>({
         resolver: zodResolver(couponFormSchema),
         defaultValues: {

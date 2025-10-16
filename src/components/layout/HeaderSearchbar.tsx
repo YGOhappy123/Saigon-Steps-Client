@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind-merge'
 import { Eraser, Search } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
-import { useAudio } from '@/hooks/useAudio'
+import { useAudioContext } from '@/components/container/AudioProvider'
 import useAxiosIns from '@/hooks/useAxiosIns'
 import useDebounce from '@/hooks/useDebounce'
 import formatCurrency from '@/utils/formatCurrency'
@@ -16,7 +16,7 @@ const HeaderSearchbar = () => {
     const searchInputRef = useRef<HTMLInputElement>(null)
     const [searchTerm, setSearchTerm] = useState('')
     const [searchResult, setSearchResult] = useState<IRootProduct[]>([])
-    const { playRandomKeyStrokeSound } = useAudio()
+    const { playRandomKeyStrokeSound } = useAudioContext()
 
     // Turn off focusing status when click outside search box
     const [inputFocusing, setInputFocusing] = useState(false)

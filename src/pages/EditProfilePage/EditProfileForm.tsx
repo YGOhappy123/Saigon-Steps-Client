@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { RootState } from '@/store'
 import { setUser } from '@/slices/authSlice'
-import { useAudio } from '@/hooks/useAudio'
+import { useAudioContext } from '@/components/container/AudioProvider'
 import ImageUploader from '@/pages/EditProfilePage/ImageUploader'
 import fileService from '@/services/fileService'
 import customerService from '@/services/customerService'
@@ -26,7 +26,7 @@ const editProfileFormSchema = z.object({
 const EditProfileForm = () => {
     const user = useSelector((state: RootState) => state.auth.user) as ICustomer
     const [avatar, setAvatar] = useState(user?.avatar)
-    const { playRandomKeyStrokeSound } = useAudio()
+    const { playRandomKeyStrokeSound } = useAudioContext()
     const { uploadBase64Mutation } = fileService()
     const { updateCustomerMutation } = customerService({ enableFetching: false })
     const dispatch = useDispatch()

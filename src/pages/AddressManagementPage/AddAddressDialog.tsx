@@ -20,7 +20,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Input } from '@/components/ui/input'
 import { PHONE_REGEX } from '@/configs/constants'
 import { parsedEnv } from '@/env'
-import { useAudio } from '@/hooks/useAudio'
+import { useAudioContext } from '@/components/container/AudioProvider'
 import axios from 'axios'
 
 const addAddressFormSchema = z.object({
@@ -49,7 +49,7 @@ type AddAddressDialogProps = {
 
 const AddAddressDialog = ({ triggerButtonClassname, addNewAddressMutation }: AddAddressDialogProps) => {
     const [open, setOpen] = useState(false)
-    const { playRandomKeyStrokeSound } = useAudio()
+    const { playRandomKeyStrokeSound } = useAudioContext()
 
     const form = useForm<z.infer<typeof addAddressFormSchema>>({
         resolver: zodResolver(addAddressFormSchema),

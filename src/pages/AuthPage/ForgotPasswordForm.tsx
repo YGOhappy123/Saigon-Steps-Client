@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { useAudio } from '@/hooks/useAudio'
+import { useAudioContext } from '@/components/container/AudioProvider'
 import authService from '@/services/authService'
 
 type ForgotPasswordFormProps = {
@@ -18,7 +18,7 @@ const forgotPasswordFormSchema = z.object({
 
 const ForgotPasswordForm = ({ changeFormType }: ForgotPasswordFormProps) => {
     const { forgotPasswordMutation } = authService()
-    const { playRandomKeyStrokeSound } = useAudio()
+    const { playRandomKeyStrokeSound } = useAudioContext()
 
     const form = useForm<z.infer<typeof forgotPasswordFormSchema>>({
         resolver: zodResolver(forgotPasswordFormSchema),

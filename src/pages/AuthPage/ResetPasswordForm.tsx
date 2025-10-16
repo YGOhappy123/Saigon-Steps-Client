@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { PasswordInput } from '@/components/ui/password-input'
-import { useAudio } from '@/hooks/useAudio'
+import { useAudioContext } from '@/components/container/AudioProvider'
 import authService from '@/services/authService'
 import toastConfig from '@/configs/toast'
 
@@ -30,7 +30,7 @@ const resetPasswordFormSchema = z
 
 const ResetPasswordForm = ({ changeFormType }: ResetPasswordFormProps) => {
     const { resetPasswordMutation } = authService()
-    const { playRandomKeyStrokeSound } = useAudio()
+    const { playRandomKeyStrokeSound } = useAudioContext()
     const [query, setQuery] = useSearchParams()
 
     const form = useForm<z.infer<typeof resetPasswordFormSchema>>({

@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import { RootState } from '@/store'
-import { useAudio } from '@/hooks/useAudio'
+import { useAudioContext } from '@/components/container/AudioProvider'
 import AppLogo from '@/components/common/AppLogo'
 import ChooseAddressSection from '@/pages/CheckoutPage/ChooseAddressSection'
 
@@ -31,7 +31,7 @@ type CheckoutFormProps = {
 const CheckoutForm = ({ handlePlaceOrder }: CheckoutFormProps) => {
     const user = useSelector((state: RootState) => state.auth.user) as ICustomer
     const [isDisabled, setIsDisabled] = useState(false)
-    const { playRandomKeyStrokeSound } = useAudio()
+    const { playRandomKeyStrokeSound } = useAudioContext()
 
     const form = useForm<TCheckoutFormSchema>({
         resolver: zodResolver(checkoutFormSchema),

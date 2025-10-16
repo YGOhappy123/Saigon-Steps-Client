@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Button } from '@/components/ui/button'
 import { PasswordInput } from '@/components/ui/password-input'
-import { useAudio } from '@/hooks/useAudio'
+import { useAudioContext } from '@/components/container/AudioProvider'
 import authService from '@/services/authService'
 
 const changePasswordFormSchema = z
@@ -23,7 +23,7 @@ const changePasswordFormSchema = z
 
 const ChangePasswordForm = () => {
     const { changePasswordMutation } = authService()
-    const { playRandomKeyStrokeSound } = useAudio()
+    const { playRandomKeyStrokeSound } = useAudioContext()
 
     const form = useForm<z.infer<typeof changePasswordFormSchema>>({
         resolver: zodResolver(changePasswordFormSchema),

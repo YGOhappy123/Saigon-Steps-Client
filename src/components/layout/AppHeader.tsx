@@ -8,8 +8,9 @@ import { Button } from '@/components/ui/button'
 import AppLogo from '@/components/common/AppLogo'
 import CustomerCart from '@/components/layout/CustomerCart'
 import ThemeToggler from '@/components/common/ThemeToggler'
-import toastConfig from '@/configs/toast'
+import AudioToggler from '@/components/common/AudioToggler'
 import HeaderSearchbar from '@/components/layout/HeaderSearchbar'
+import toastConfig from '@/configs/toast'
 
 const AppHeader = () => {
     const dispatch = useDispatch()
@@ -25,7 +26,7 @@ const AppHeader = () => {
 
                 <HeaderSearchbar />
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center">
                     {isLogged ? (
                         <>
                             <CustomerCart
@@ -35,9 +36,8 @@ const AppHeader = () => {
                                     </Button>
                                 }
                             />
-
                             <ThemeToggler />
-
+                            <AudioToggler />
                             <Button
                                 variant="ghost"
                                 size="icon"
@@ -59,12 +59,15 @@ const AppHeader = () => {
                             )}
                         </>
                     ) : (
-                        <ThemeToggler />
+                        <>
+                            <ThemeToggler />
+                            <AudioToggler />
+                        </>
                     )}
 
                     <Button
                         size="xl"
-                        className="ml-1 rounded-full text-base capitalize"
+                        className="ml-3 rounded-full text-base capitalize"
                         onClick={() => {
                             if (isLogged) {
                                 dispatch(signOut())
