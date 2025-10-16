@@ -8,6 +8,10 @@ const ERROR_MESSAGES = {
     NO_CREDENTIALS: 'Không có thông tin xác thực.',
     NO_PERMISSION: 'Bạn không có quyền thực hiện hành động này.',
 
+    // Security related
+    RATE_LIMIT_EXCEEDED: 'Vượt quá giới hạn truy cập cho phép. Vui lòng thử lại sau.',
+    BOT_ACCESS_DENIED: 'Truy cập từ bot bị từ chối.',
+
     // Users related
     EMAIL_EXISTED: 'Email đã tồn tại.',
     USER_NOT_FOUND: 'Người dùng không tồn tại.',

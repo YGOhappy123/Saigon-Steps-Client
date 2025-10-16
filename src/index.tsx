@@ -8,6 +8,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
+import { AudioProvider } from '@/components/container/AudioProvider'
 import { ThemeProvider } from '@/components/container/ThemeProvider'
 import { parsedEnv } from '@/env'
 import { store } from '@/store'
@@ -22,9 +23,11 @@ createRoot(document.getElementById('root')!).render(
         <ReduxProvider store={store}>
             <PersistGate loading={null} persistor={persistor}>
                 <QueryClientProvider client={queryClient}>
-                    <ThemeProvider>
-                        <RouterProvider router={getRouter(parsedEnv.VITE_NODE_ENV)} />
-                    </ThemeProvider>
+                    <AudioProvider>
+                        <ThemeProvider>
+                            <RouterProvider router={getRouter(parsedEnv.VITE_NODE_ENV)} />
+                        </ThemeProvider>
+                    </AudioProvider>
                 </QueryClientProvider>
             </PersistGate>
             <ToastContainer />

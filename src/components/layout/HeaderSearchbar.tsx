@@ -5,6 +5,7 @@ import { twMerge } from 'tailwind-merge'
 import { Eraser, Search } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
+import { useAudio } from '@/hooks/useAudio'
 import useAxiosIns from '@/hooks/useAxiosIns'
 import useDebounce from '@/hooks/useDebounce'
 import formatCurrency from '@/utils/formatCurrency'
@@ -15,6 +16,7 @@ const HeaderSearchbar = () => {
     const searchInputRef = useRef<HTMLInputElement>(null)
     const [searchTerm, setSearchTerm] = useState('')
     const [searchResult, setSearchResult] = useState<IRootProduct[]>([])
+    const { playRandomKeyStrokeSound } = useAudio()
 
     // Turn off focusing status when click outside search box
     const [inputFocusing, setInputFocusing] = useState(false)
@@ -92,6 +94,7 @@ const HeaderSearchbar = () => {
                 value={searchTerm}
                 ref={searchInputRef}
                 onChange={handleTyping}
+                onKeyDown={playRandomKeyStrokeSound}
                 onFocus={() => setInputFocusing(true)}
                 className="border-none bg-transparent! font-medium shadow-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
             />
@@ -126,7 +129,7 @@ const HeaderSearchbar = () => {
 
                     {searchResult.length === 0 && searchTerm && !isTyping && !searchProductsQuery.isLoading && (
                         <div className="py-8 text-center text-sm font-medium">
-                            <p>Xin lỗi, chúng tôi không tìm thấy sản phẩm nào</p>
+                            <p>Xin lỗi, chúng tôi không tìm thấy sản phẩm hoặc thương hiệu nào</p>
                             <p>Mang tên "{searchTerm}"</p>
                             <p>Hoặc sản phẩm bạn cần tìm đã bị gỡ.</p>
                         </div>

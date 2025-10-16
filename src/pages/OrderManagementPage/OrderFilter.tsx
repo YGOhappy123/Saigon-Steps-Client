@@ -7,6 +7,7 @@ import { ArrowDown10, ArrowUp10 } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { ORDER_STATUS_OPTIONS } from '@/configs/constants'
+import { useAudio } from '@/hooks/useAudio'
 import DateRangePicker from '@/components/common/DateRangePicker'
 
 type OrderFilterProps = {
@@ -17,6 +18,7 @@ type OrderFilterProps = {
 }
 
 const OrderFilter = ({ setHavingFilters, onChange, onSearch, onReset }: OrderFilterProps) => {
+    const { playRandomKeyStrokeSound } = useAudio()
     const [searchStatus, setSearchStatus] = useState<OrderStatus | undefined>(undefined)
     const [searchMinPrice, setSearchMinPrice] = useState<string>('')
     const [searchMaxPrice, setSearchMaxPrice] = useState<string>('')
@@ -95,6 +97,7 @@ const OrderFilter = ({ setHavingFilters, onChange, onSearch, onReset }: OrderFil
                         type="number"
                         value={searchMinPrice}
                         onChange={e => setSearchMinPrice(e.target.value)}
+                        onKeyDown={playRandomKeyStrokeSound}
                     />
                     <Input
                         name="maxPrice"
@@ -103,6 +106,7 @@ const OrderFilter = ({ setHavingFilters, onChange, onSearch, onReset }: OrderFil
                         type="number"
                         value={searchMaxPrice}
                         onChange={e => setSearchMaxPrice(e.target.value)}
+                        onKeyDown={playRandomKeyStrokeSound}
                     />
                 </div>
 

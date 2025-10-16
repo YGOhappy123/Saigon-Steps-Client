@@ -20,6 +20,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Input } from '@/components/ui/input'
 import { PHONE_REGEX } from '@/configs/constants'
 import { parsedEnv } from '@/env'
+import { useAudio } from '@/hooks/useAudio'
 import axios from 'axios'
 
 const addAddressFormSchema = z.object({
@@ -48,6 +49,7 @@ type AddAddressDialogProps = {
 
 const AddAddressDialog = ({ triggerButtonClassname, addNewAddressMutation }: AddAddressDialogProps) => {
     const [open, setOpen] = useState(false)
+    const { playRandomKeyStrokeSound } = useAudio()
 
     const form = useForm<z.infer<typeof addAddressFormSchema>>({
         resolver: zodResolver(addAddressFormSchema),
@@ -123,6 +125,7 @@ const AddAddressDialog = ({ triggerButtonClassname, addNewAddressMutation }: Add
                                         <FormLabel className="text-card-foreground">Họ & tên người nhận</FormLabel>
                                         <FormControl>
                                             <Input
+                                                onKeyDown={playRandomKeyStrokeSound}
                                                 placeholder="Họ & tên người nhận..."
                                                 className="text-card-foreground caret-card-foreground h-12 rounded border-2 font-semibold"
                                                 {...field}
@@ -140,6 +143,7 @@ const AddAddressDialog = ({ triggerButtonClassname, addNewAddressMutation }: Add
                                         <FormLabel className="text-card-foreground">Số điện thoại người nhận</FormLabel>
                                         <FormControl>
                                             <Input
+                                                onKeyDown={playRandomKeyStrokeSound}
                                                 placeholder="Số điện thoại người nhận..."
                                                 className="text-card-foreground caret-card-foreground h-12 rounded border-2 font-semibold"
                                                 {...field}
@@ -217,6 +221,7 @@ const AddAddressDialog = ({ triggerButtonClassname, addNewAddressMutation }: Add
                                         <FormLabel className="text-card-foreground">Địa chỉ cụ thể</FormLabel>
                                         <FormControl>
                                             <Input
+                                                onKeyDown={playRandomKeyStrokeSound}
                                                 placeholder="Địa chỉ cụ thể (Số nhà, tên đường, ngõ, hẻm,...)"
                                                 className="text-card-foreground caret-card-foreground h-12 rounded border-2 font-semibold"
                                                 {...field}
