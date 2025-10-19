@@ -125,7 +125,7 @@ const AddAddressDialog = ({ triggerButtonClassname, addNewAddressMutation }: Add
                                         <FormLabel className="text-card-foreground">Họ & tên người nhận</FormLabel>
                                         <FormControl>
                                             <Input
-                                                onKeyDown={playRandomKeyStrokeSound}
+                                                onKeyDown={() => playRandomKeyStrokeSound()}
                                                 placeholder="Họ & tên người nhận..."
                                                 className="text-card-foreground caret-card-foreground h-12 rounded border-2 font-semibold"
                                                 {...field}
@@ -143,7 +143,7 @@ const AddAddressDialog = ({ triggerButtonClassname, addNewAddressMutation }: Add
                                         <FormLabel className="text-card-foreground">Số điện thoại người nhận</FormLabel>
                                         <FormControl>
                                             <Input
-                                                onKeyDown={playRandomKeyStrokeSound}
+                                                onKeyDown={() => playRandomKeyStrokeSound()}
                                                 placeholder="Số điện thoại người nhận..."
                                                 className="text-card-foreground caret-card-foreground h-12 rounded border-2 font-semibold"
                                                 {...field}
@@ -221,7 +221,7 @@ const AddAddressDialog = ({ triggerButtonClassname, addNewAddressMutation }: Add
                                         <FormLabel className="text-card-foreground">Địa chỉ cụ thể</FormLabel>
                                         <FormControl>
                                             <Input
-                                                onKeyDown={playRandomKeyStrokeSound}
+                                                onKeyDown={() => playRandomKeyStrokeSound()}
                                                 placeholder="Địa chỉ cụ thể (Số nhà, tên đường, ngõ, hẻm,...)"
                                                 className="text-card-foreground caret-card-foreground h-12 rounded border-2 font-semibold"
                                                 {...field}

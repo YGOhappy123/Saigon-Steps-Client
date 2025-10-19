@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom'
 import AuthProtector from '@/components/container/AuthProtector'
 import ProfileLayout from '@/layouts/ProfileLayout'
 import EditProfilePage from '@/pages/EditProfilePage'
+import ChatPage from '@/pages/ChatPage'
 import ChangePasswordPage from '@/pages/ChangePasswordPage'
 import OrderManagementPage from '@/pages/OrderManagementPage'
 import AddressManagementPage from '@/pages/AddressManagementPage'
@@ -29,6 +30,10 @@ const ProfileRoutes = [
             {
                 path: 'change-password',
                 element: <ChangePasswordPage />
+            },
+            {
+                path: 'chat',
+                element: <ChatPage />
             },
             {
                 path: 'orders',

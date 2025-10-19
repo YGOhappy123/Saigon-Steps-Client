@@ -47,7 +47,7 @@ const ForgotPasswordForm = ({ changeFormType }: ForgotPasswordFormProps) => {
                                 <FormLabel className="text-[#101319]">Email</FormLabel>
                                 <FormControl>
                                     <Input
-                                        onKeyDown={playRandomKeyStrokeSound}
+                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         placeholder="Email..."
                                         className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         {...field}

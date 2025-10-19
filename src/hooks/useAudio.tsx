@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 
+const mouseClickSound = new Audio('/audios/mouse-click.mp3')
+
 const keyStrokeSounds = [
     new Audio('/audios/keystroke1.mp3'),
     new Audio('/audios/keystroke2.mp3'),
@@ -20,8 +22,15 @@ export const useAudio = () => {
         setEnableAudio(prev => (prev === 'on' ? 'off' : 'on'))
     }
 
-    const playRandomKeyStrokeSound = () => {
-        if (enableAudio === 'off') return
+    const playMouseClickSound = (isForced: boolean = false) => {
+        if (enableAudio === 'off' && !isForced) return
+
+        mouseClickSound.currentTime = 0
+        mouseClickSound.play().catch(() => {})
+    }
+
+    const playRandomKeyStrokeSound = (isForced: boolean = false) => {
+        if (enableAudio === 'off' && !isForced) return
 
         const randomIndex = Math.floor(Math.random() * keyStrokeSounds.length)
         const randomSound = keyStrokeSounds[randomIndex]
@@ -29,5 +38,5 @@ export const useAudio = () => {
         randomSound.play().catch(() => {})
     }
 
-    return { enableAudio, toggleEnableAudio, playRandomKeyStrokeSound }
+    return { enableAudio, toggleEnableAudio, playMouseClickSound, playRandomKeyStrokeSound }
 }

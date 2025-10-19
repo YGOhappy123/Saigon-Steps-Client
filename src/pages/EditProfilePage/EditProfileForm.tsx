@@ -83,7 +83,7 @@ const EditProfileForm = () => {
                                     <FormLabel className="text-card-foreground">Họ và tên</FormLabel>
                                     <FormControl>
                                         <Input
-                                            onKeyDown={playRandomKeyStrokeSound}
+                                            onKeyDown={() => playRandomKeyStrokeSound()}
                                             placeholder="Họ và tên..."
                                             className="caret-card-foreground text-card-foreground h-12 rounded border-2 font-semibold"
                                             {...field}
@@ -101,7 +101,7 @@ const EditProfileForm = () => {
                                     <FormLabel className="text-card-foreground">Email</FormLabel>
                                     <FormControl>
                                         <Input
-                                            onKeyDown={playRandomKeyStrokeSound}
+                                            onKeyDown={() => playRandomKeyStrokeSound()}
                                             placeholder="Email..."
                                             className="caret-card-foreground text-card-foreground h-12 rounded border-2 font-semibold"
                                             {...field}

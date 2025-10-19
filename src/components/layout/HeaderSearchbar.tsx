@@ -94,7 +94,7 @@ const HeaderSearchbar = () => {
                 value={searchTerm}
                 ref={searchInputRef}
                 onChange={handleTyping}
-                onKeyDown={playRandomKeyStrokeSound}
+                onKeyDown={() => playRandomKeyStrokeSound()}
                 onFocus={() => setInputFocusing(true)}
                 className="border-none bg-transparent! font-medium shadow-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
             />

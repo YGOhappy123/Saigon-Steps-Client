@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { ChevronsUpDown, LogOutIcon, Moon, Sun, UserIcon, Volume2, VolumeX } from 'lucide-react'
+import { ChevronsUpDown, LogOutIcon, Moon, Sun, UserIcon, Volume2, VolumeOff } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { SidebarMenuButton, useSidebar } from '@/components/ui/sidebar'
 import {
@@ -74,7 +74,7 @@ const SidebarUserButton = () => {
                         </>
                     ) : (
                         <>
-                            <VolumeX className="mr-1" /> Tắt âm thanh
+                            <VolumeOff className="mr-1" /> Tắt âm thanh
                         </>
                     )}
                 </DropdownMenuItem>

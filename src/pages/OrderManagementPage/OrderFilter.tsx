@@ -97,7 +97,7 @@ const OrderFilter = ({ setHavingFilters, onChange, onSearch, onReset }: OrderFil
                         type="number"
                         value={searchMinPrice}
                         onChange={e => setSearchMinPrice(e.target.value)}
-                        onKeyDown={playRandomKeyStrokeSound}
+                        onKeyDown={() => playRandomKeyStrokeSound()}
                     />
                     <Input
                         name="maxPrice"
@@ -106,7 +106,7 @@ const OrderFilter = ({ setHavingFilters, onChange, onSearch, onReset }: OrderFil
                         type="number"
                         value={searchMaxPrice}
                         onChange={e => setSearchMaxPrice(e.target.value)}
-                        onKeyDown={playRandomKeyStrokeSound}
+                        onKeyDown={() => playRandomKeyStrokeSound()}
                     />
                 </div>
 

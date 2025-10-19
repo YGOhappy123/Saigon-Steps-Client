@@ -64,7 +64,7 @@ const CheckoutForm = ({ handlePlaceOrder }: CheckoutFormProps) => {
                                 <FormLabel className="text-card-foreground">Ghi chú đơn hàng</FormLabel>
                                 <FormControl>
                                     <Textarea
-                                        onKeyDown={playRandomKeyStrokeSound}
+                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         rows={4}
                                         placeholder="Ghi chú đơn hàng..."
                                         className="caret-card-foreground text-card-foreground rounded border-2"

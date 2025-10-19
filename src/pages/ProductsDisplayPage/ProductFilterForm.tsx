@@ -77,7 +77,7 @@ const ProductFilterForm = ({
 
     return (
         <Card className="w-full">
-            <CardHeader className="relative text-center">
+            <CardHeader className="text-center">
                 <CardTitle className="text-xl">Tìm kiếm sản phẩm</CardTitle>
                 <CardDescription>Tìm kiếm sản phẩm theo tên, phân loại, tầm giá...</CardDescription>
             </CardHeader>
@@ -92,7 +92,7 @@ const ProductFilterForm = ({
                                 className="caret-card-foreground text-card-foreground h-10 rounded border-2 font-semibold"
                                 value={searchName}
                                 onChange={e => setSearchName(e.target.value)}
-                                onKeyDown={playRandomKeyStrokeSound}
+                                onKeyDown={() => playRandomKeyStrokeSound()}
                             />
                         </div>
 

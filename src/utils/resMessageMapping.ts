@@ -64,7 +64,10 @@ const ERROR_MESSAGES = {
     COUPON_NOT_FOUND: 'Không tìm thấy phiếu giảm giá.',
     COUPON_NO_LONGER_AVAILABLE: 'Phiếu giảm giá không còn hiệu lực.',
     COUPON_REACH_MAX_USAGE: 'Phiếu giảm giá đã đạt giới hạn sử dụng.',
-    YOU_HAVE_USED_COUPON: 'Bạn đã sử dụng phiếu giảm giá này rồi.'
+    YOU_HAVE_USED_COUPON: 'Bạn đã sử dụng phiếu giảm giá này rồi.',
+
+    // Conversations and messages related
+    SEND_MESSAGE_SUCCESSFULLY: 'Gửi tin nhắn thành công.'
 }
 
 const SUCCESS_MESSAGES = {
@@ -129,7 +132,10 @@ const SUCCESS_MESSAGES = {
     TRACK_IMPORT_SUCCESSFULLY: 'Ghi nhận đơn nhập hàng thành công.',
 
     // Reports related
-    REPORT_DAMAGE_SUCCESSFULLY: 'Báo cáo thiệt hại thành công.'
+    REPORT_DAMAGE_SUCCESSFULLY: 'Báo cáo thiệt hại thành công.',
+
+    // Conversations and messages related
+    CONVERSATION_NOT_FOUND: 'Không tìm thấy cuộc trò chuyện.'
 }
 
 export const RES_MESSAGE_MAPPING = {

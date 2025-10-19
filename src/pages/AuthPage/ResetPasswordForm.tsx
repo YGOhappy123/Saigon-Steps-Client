@@ -75,7 +75,7 @@ const ResetPasswordForm = ({ changeFormType }: ResetPasswordFormProps) => {
                                 <FormLabel className="text-[#101319]">Mật khẩu</FormLabel>
                                 <FormControl>
                                     <PasswordInput
-                                        onKeyDown={playRandomKeyStrokeSound}
+                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         placeholder="Mật khẩu..."
                                         className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         iconClassname="text-primary"
@@ -97,7 +97,7 @@ const ResetPasswordForm = ({ changeFormType }: ResetPasswordFormProps) => {
                                 <FormLabel className="text-[#101319]">Nhập lại mật khẩu</FormLabel>
                                 <FormControl>
                                     <PasswordInput
-                                        onKeyDown={playRandomKeyStrokeSound}
+                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         placeholder="Nhập lại mật khẩu..."
                                         className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         iconClassname="text-primary"

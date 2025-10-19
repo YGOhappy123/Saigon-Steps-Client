@@ -52,7 +52,7 @@ const SignInForm = ({ changeFormType }: SignInFormProps) => {
                                 <FormLabel className="text-[#101319]">Tên đăng nhập</FormLabel>
                                 <FormControl>
                                     <Input
-                                        onKeyDown={playRandomKeyStrokeSound}
+                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         placeholder="Tên đăng nhập..."
                                         className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         {...field}
@@ -73,7 +73,7 @@ const SignInForm = ({ changeFormType }: SignInFormProps) => {
                                 <FormLabel className="text-[#101319]">Mật khẩu</FormLabel>
                                 <FormControl>
                                     <PasswordInput
-                                        onKeyDown={playRandomKeyStrokeSound}
+                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         placeholder="Mật khẩu..."
                                         className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         iconClassname="text-primary"
