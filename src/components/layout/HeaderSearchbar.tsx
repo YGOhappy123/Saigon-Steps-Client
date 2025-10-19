@@ -2,10 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { twMerge } from 'tailwind-merge'
-import { Eraser, Search } from 'lucide-react'
+import { X, Search } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
-import { useAudioContext } from '@/components/container/AudioProvider'
 import useAxiosIns from '@/hooks/useAxiosIns'
 import useDebounce from '@/hooks/useDebounce'
 import formatCurrency from '@/utils/formatCurrency'
@@ -16,7 +15,6 @@ const HeaderSearchbar = () => {
     const searchInputRef = useRef<HTMLInputElement>(null)
     const [searchTerm, setSearchTerm] = useState('')
     const [searchResult, setSearchResult] = useState<IRootProduct[]>([])
-    const { playRandomKeyStrokeSound } = useAudioContext()
 
     // Turn off focusing status when click outside search box
     const [inputFocusing, setInputFocusing] = useState(false)
@@ -94,14 +92,13 @@ const HeaderSearchbar = () => {
                 value={searchTerm}
                 ref={searchInputRef}
                 onChange={handleTyping}
-                onKeyDown={() => playRandomKeyStrokeSound()}
                 onFocus={() => setInputFocusing(true)}
                 className="border-none bg-transparent! font-medium shadow-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
             />
             <Separator orientation="vertical" className="data-[orientation=vertical]:h-7" />
 
             {searchTerm ? (
-                <Eraser
+                <X
                     className="cursor-pointer"
                     onClick={() => {
                         setSearchTerm('')

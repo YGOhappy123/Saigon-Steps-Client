@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { PasswordInput } from '@/components/ui/password-input'
-import { useAudioContext } from '@/components/container/AudioProvider'
 import authService from '@/services/authService'
 
 type SignUpFormProps = {
@@ -36,7 +35,6 @@ const signUpFormSchema = z
 
 const SignUpForm = ({ changeFormType }: SignUpFormProps) => {
     const { signUpMutation } = authService()
-    const { playRandomKeyStrokeSound } = useAudioContext()
 
     const form = useForm<z.infer<typeof signUpFormSchema>>({
         resolver: zodResolver(signUpFormSchema),
@@ -71,7 +69,6 @@ const SignUpForm = ({ changeFormType }: SignUpFormProps) => {
                                 <FormLabel className="text-[#101319]">Họ và tên</FormLabel>
                                 <FormControl>
                                     <Input
-                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         placeholder="Họ và tên..."
                                         className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         {...field}
@@ -92,7 +89,6 @@ const SignUpForm = ({ changeFormType }: SignUpFormProps) => {
                                 <FormLabel className="text-[#101319]">Tên đăng nhập</FormLabel>
                                 <FormControl>
                                     <Input
-                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         placeholder="Tên đăng nhập..."
                                         className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         {...field}
@@ -113,7 +109,6 @@ const SignUpForm = ({ changeFormType }: SignUpFormProps) => {
                                 <FormLabel className="text-[#101319]">Mật khẩu</FormLabel>
                                 <FormControl>
                                     <PasswordInput
-                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         placeholder="Mật khẩu..."
                                         className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         iconClassname="text-primary"
@@ -132,7 +127,6 @@ const SignUpForm = ({ changeFormType }: SignUpFormProps) => {
                                 <FormLabel className="text-[#101319]">Nhập lại mật khẩu</FormLabel>
                                 <FormControl>
                                     <PasswordInput
-                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         placeholder="Nhập lại mật khẩu..."
                                         className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         iconClassname="text-primary"

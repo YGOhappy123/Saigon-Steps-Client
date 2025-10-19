@@ -7,7 +7,6 @@ import { useForm } from 'react-hook-form'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { PasswordInput } from '@/components/ui/password-input'
-import { useAudioContext } from '@/components/container/AudioProvider'
 import authService from '@/services/authService'
 import toastConfig from '@/configs/toast'
 
@@ -30,7 +29,6 @@ const resetPasswordFormSchema = z
 
 const ResetPasswordForm = ({ changeFormType }: ResetPasswordFormProps) => {
     const { resetPasswordMutation } = authService()
-    const { playRandomKeyStrokeSound } = useAudioContext()
     const [query, setQuery] = useSearchParams()
 
     const form = useForm<z.infer<typeof resetPasswordFormSchema>>({
@@ -75,7 +73,6 @@ const ResetPasswordForm = ({ changeFormType }: ResetPasswordFormProps) => {
                                 <FormLabel className="text-[#101319]">Mật khẩu</FormLabel>
                                 <FormControl>
                                     <PasswordInput
-                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         placeholder="Mật khẩu..."
                                         className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         iconClassname="text-primary"
@@ -97,7 +94,6 @@ const ResetPasswordForm = ({ changeFormType }: ResetPasswordFormProps) => {
                                 <FormLabel className="text-[#101319]">Nhập lại mật khẩu</FormLabel>
                                 <FormControl>
                                     <PasswordInput
-                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         placeholder="Nhập lại mật khẩu..."
                                         className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         iconClassname="text-primary"

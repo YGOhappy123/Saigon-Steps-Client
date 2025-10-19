@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useMutation } from '@tanstack/react-query'
 import { onError } from '@/utils/errorsHandler'
-import { useAudioContext } from '@/components/container/AudioProvider'
 import ChatImageUploader from '@/pages/ChatPage/ChatImageUploader'
 import useAxiosIns from '@/hooks/useAxiosIns'
 import fileService from '@/services/fileService'
@@ -34,7 +33,6 @@ const SendMessageForm = ({ onOptimisticDisplay }: SendMessageFormProps) => {
         }
     })
 
-    const { playRandomKeyStrokeSound } = useAudioContext()
     const { uploadBase64Mutation } = fileService()
     const axios = useAxiosIns()
     const sendMessageMutation = useMutation({
@@ -105,7 +103,6 @@ const SendMessageForm = ({ onOptimisticDisplay }: SendMessageFormProps) => {
                             <FormItem className="flex-1">
                                 <FormControl>
                                     <Input
-                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         autoFocus
                                         autoComplete="off"
                                         placeholder="Nội dung tin nhắn..."

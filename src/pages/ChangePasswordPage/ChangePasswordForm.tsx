@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Button } from '@/components/ui/button'
 import { PasswordInput } from '@/components/ui/password-input'
-import { useAudioContext } from '@/components/container/AudioProvider'
 import authService from '@/services/authService'
 
 const changePasswordFormSchema = z
@@ -23,7 +22,6 @@ const changePasswordFormSchema = z
 
 const ChangePasswordForm = () => {
     const { changePasswordMutation } = authService()
-    const { playRandomKeyStrokeSound } = useAudioContext()
 
     const form = useForm<z.infer<typeof changePasswordFormSchema>>({
         resolver: zodResolver(changePasswordFormSchema),
@@ -56,7 +54,6 @@ const ChangePasswordForm = () => {
                                 <FormLabel className="text-card-foreground">Mật khẩu cũ</FormLabel>
                                 <FormControl>
                                     <PasswordInput
-                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         placeholder="Mật khẩu cũ..."
                                         className="text-card-foreground caret-card-foreground h-12 rounded border-2 font-semibold"
                                         {...field}
@@ -74,7 +71,6 @@ const ChangePasswordForm = () => {
                                 <FormLabel className="text-card-foreground">Mật khẩu mới</FormLabel>
                                 <FormControl>
                                     <PasswordInput
-                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         placeholder="Mật khẩu mới..."
                                         className="text-card-foreground caret-card-foreground h-12 rounded border-2 font-semibold"
                                         {...field}
@@ -92,7 +88,6 @@ const ChangePasswordForm = () => {
                                 <FormLabel className="text-card-foreground">Nhập lại mật khẩu</FormLabel>
                                 <FormControl>
                                     <PasswordInput
-                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         placeholder="Nhập lại mật khẩu..."
                                         className="text-card-foreground caret-card-foreground h-12 rounded border-2 font-semibold"
                                         {...field}

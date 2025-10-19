@@ -10,7 +10,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import { RootState } from '@/store'
-import { useAudioContext } from '@/components/container/AudioProvider'
 import AppLogo from '@/components/common/AppLogo'
 import ChooseAddressSection from '@/pages/CheckoutPage/ChooseAddressSection'
 
@@ -31,7 +30,6 @@ type CheckoutFormProps = {
 const CheckoutForm = ({ handlePlaceOrder }: CheckoutFormProps) => {
     const user = useSelector((state: RootState) => state.auth.user) as ICustomer
     const [isDisabled, setIsDisabled] = useState(false)
-    const { playRandomKeyStrokeSound } = useAudioContext()
 
     const form = useForm<TCheckoutFormSchema>({
         resolver: zodResolver(checkoutFormSchema),
@@ -64,7 +62,6 @@ const CheckoutForm = ({ handlePlaceOrder }: CheckoutFormProps) => {
                                 <FormLabel className="text-card-foreground">Ghi chú đơn hàng</FormLabel>
                                 <FormControl>
                                     <Textarea
-                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         rows={4}
                                         placeholder="Ghi chú đơn hàng..."
                                         className="caret-card-foreground text-card-foreground rounded border-2"

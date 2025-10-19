@@ -8,7 +8,6 @@ import { Separator } from '@/components/ui/separator'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { useAudioContext } from '@/components/container/AudioProvider'
 import formatCurrency from '@/utils/formatCurrency'
 
 type ProductFilterFormProps = {
@@ -35,7 +34,6 @@ const ProductFilterForm = ({
     resetFilters
 }: ProductFilterFormProps) => {
     const navigate = useNavigate()
-    const { playRandomKeyStrokeSound } = useAudioContext()
 
     const priceOptions: { id: string; min: number | null; max: number | null }[] = [
         { id: 'all', min: null, max: null },
@@ -92,7 +90,6 @@ const ProductFilterForm = ({
                                 className="caret-card-foreground text-card-foreground h-10 rounded border-2 font-semibold"
                                 value={searchName}
                                 onChange={e => setSearchName(e.target.value)}
-                                onKeyDown={() => playRandomKeyStrokeSound()}
                             />
                         </div>
 

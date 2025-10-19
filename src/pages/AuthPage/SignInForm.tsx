@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { PasswordInput } from '@/components/ui/password-input'
-import { useAudioContext } from '@/components/container/AudioProvider'
 import GoogleAuthButton from '@/components/common/GoogleAuthButton'
 import authService from '@/services/authService'
 
@@ -21,7 +20,6 @@ const signInFormSchema = z.object({
 
 const SignInForm = ({ changeFormType }: SignInFormProps) => {
     const { signInMutation } = authService()
-    const { playRandomKeyStrokeSound } = useAudioContext()
 
     const form = useForm<z.infer<typeof signInFormSchema>>({
         resolver: zodResolver(signInFormSchema),
@@ -52,7 +50,6 @@ const SignInForm = ({ changeFormType }: SignInFormProps) => {
                                 <FormLabel className="text-[#101319]">Tên đăng nhập</FormLabel>
                                 <FormControl>
                                     <Input
-                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         placeholder="Tên đăng nhập..."
                                         className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         {...field}
@@ -73,7 +70,6 @@ const SignInForm = ({ changeFormType }: SignInFormProps) => {
                                 <FormLabel className="text-[#101319]">Mật khẩu</FormLabel>
                                 <FormControl>
                                     <PasswordInput
-                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         placeholder="Mật khẩu..."
                                         className="h-12 rounded border-2 border-[#e7e3e4] font-semibold"
                                         iconClassname="text-primary"

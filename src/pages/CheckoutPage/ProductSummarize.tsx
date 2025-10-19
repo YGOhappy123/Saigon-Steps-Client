@@ -10,7 +10,6 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { DetailedCart } from '@/hooks/useCustomerCart'
-import { useAudioContext } from '@/components/container/AudioProvider'
 import formatCurrency from '@/utils/formatCurrency'
 
 const couponFormSchema = z.object({
@@ -25,7 +24,6 @@ type ProductSummarizeProps = {
 }
 
 const ProductSummarize = ({ items, coupon, handleVerifyCoupon, handleClearCoupon }: ProductSummarizeProps) => {
-    const { playRandomKeyStrokeSound } = useAudioContext()
     const form = useForm<z.infer<typeof couponFormSchema>>({
         resolver: zodResolver(couponFormSchema),
         defaultValues: {
@@ -90,7 +88,6 @@ const ProductSummarize = ({ items, coupon, handleVerifyCoupon, handleClearCoupon
                             <FormItem className="flex-1">
                                 <FormControl>
                                     <Input
-                                        onKeyDown={() => playRandomKeyStrokeSound()}
                                         disabled={coupon != null}
                                         placeholder="Mã phiếu giảm giá..."
                                         className="caret-card-foreground text-card-foreground h-12 rounded border-2 font-semibold"

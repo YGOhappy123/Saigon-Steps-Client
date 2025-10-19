@@ -9,7 +9,6 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { RootState } from '@/store'
 import { setUser } from '@/slices/authSlice'
-import { useAudioContext } from '@/components/container/AudioProvider'
 import ImageUploader from '@/pages/EditProfilePage/ImageUploader'
 import fileService from '@/services/fileService'
 import customerService from '@/services/customerService'
@@ -26,7 +25,6 @@ const editProfileFormSchema = z.object({
 const EditProfileForm = () => {
     const user = useSelector((state: RootState) => state.auth.user) as ICustomer
     const [avatar, setAvatar] = useState(user?.avatar)
-    const { playRandomKeyStrokeSound } = useAudioContext()
     const { uploadBase64Mutation } = fileService()
     const { updateCustomerMutation } = customerService({ enableFetching: false })
     const dispatch = useDispatch()
@@ -83,7 +81,6 @@ const EditProfileForm = () => {
                                     <FormLabel className="text-card-foreground">Họ và tên</FormLabel>
                                     <FormControl>
                                         <Input
-                                            onKeyDown={() => playRandomKeyStrokeSound()}
                                             placeholder="Họ và tên..."
                                             className="caret-card-foreground text-card-foreground h-12 rounded border-2 font-semibold"
                                             {...field}
@@ -101,7 +98,6 @@ const EditProfileForm = () => {
                                     <FormLabel className="text-card-foreground">Email</FormLabel>
                                     <FormControl>
                                         <Input
-                                            onKeyDown={() => playRandomKeyStrokeSound()}
                                             placeholder="Email..."
                                             className="caret-card-foreground text-card-foreground h-12 rounded border-2 font-semibold"
                                             {...field}

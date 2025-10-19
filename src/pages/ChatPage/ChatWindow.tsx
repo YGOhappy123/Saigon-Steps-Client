@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
+import { MessageCircleIcon } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import { useSocketContext } from '@/components/container/SocketProvider'
 import SendMessageForm from '@/pages/ChatPage/SendMessageForm'
 import ChatMessagesDisplay from '@/pages/ChatPage/ChatMessagesDisplay'
-import { MessageCircleIcon } from 'lucide-react'
 
 type ChatWindowProps = {
     user: ICustomer
