@@ -29,7 +29,7 @@ const ChatImageContentDisplay = ({ src, alt = 'Message image content' }: ChatIma
                         <span>Xem ảnh</span>
                     </div>
                 </DialogTrigger>
-                <DialogContent className="h-fit sm:max-w-[70vw]">
+                <DialogContent className="h-fit sm:max-w-[70vw] lg:max-w-[60vw]">
                     <DialogHeader>
                         <DialogTitle>Xem ảnh</DialogTitle>
                         <DialogDescription>Xem ảnh trong kích thước đầy đủ.</DialogDescription>
