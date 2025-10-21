@@ -31,7 +31,15 @@ const ChatPageInner = () => {
     useEffect(() => {
         const handleNewConversation = (newConversation: IConversation) => {
             if (newConversation.customerId === user.customerId) {
-                setConversation({ ...newConversation, messages: [newConversation.lastMessage!] })
+                setConversation({
+                    ...newConversation,
+                    messages: [
+                        {
+                            ...newConversation.lastMessage!,
+                            isSentByStaff: newConversation.lastMessage?.senderStaffId ? true : false
+                        }
+                    ]
+                })
             }
         }
 
