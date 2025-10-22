@@ -140,7 +140,6 @@ const ProductsDisplayPage = () => {
                             onSelectOne={item => updateParam('brand', item.name)}
                             onSelectAll={() => updateParam('brand')}
                         />
-
                         <ProductGrid
                             containerClassName="xl:mt-5"
                             products={filteredProducts}

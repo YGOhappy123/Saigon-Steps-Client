@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { ShoppingCart } from 'lucide-react'
 import { Avatar as RadixAvatar, AvatarImage as RadixAvatarImage } from '@radix-ui/react-avatar'
 import { Button } from '@/components/ui/button'
-import ProductCard from '@/pages/ProductsDisplayPage/ProductCard'
+import ProductCard from '@/components/common/ProductCard'
 import Pagination from '@/components/common/Pagination'
 
 type ProductGridProps = {

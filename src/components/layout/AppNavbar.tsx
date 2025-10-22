@@ -1,83 +1,22 @@
-import { NavLink, useNavigate } from 'react-router-dom'
-import { Fish, ShoppingBag } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
-import { useSelector } from 'react-redux'
-import { RootState } from '@/store'
-import { NAVIGATION_TABS } from '@/configs/constants'
+import { NavLink } from 'react-router-dom'
 import { twMerge } from 'tailwind-merge'
-// import categoryService from '@/services/categoryService'
+import { NAVIGATION_TABS } from '@/configs/constants'
 
 const AppNavbar = () => {
-    const navigate = useNavigate()
-    const { isLogged } = useSelector((state: RootState) => state.auth)
-
     return (
-        <nav className="bg-background sticky top-0 z-[10] flex w-full justify-center border-b shadow-md">
+        <nav className="bg-background sticky top-0 z-[1000] flex w-full justify-center border-b shadow-md">
             <div className="max-w-container flex w-full items-center justify-between gap-10 p-4 lg:gap-15 xl:gap-25">
-                <div className="flex w-full items-start justify-center gap-8 lg:gap-10 xl:gap-12">
-                    {/* <div className="mr-auto grid shrink-0 grid-cols-2 justify-center gap-4">
-                        <Button size="lg" className="shrink-0 rounded-full" onClick={() => navigate('/about-us')}>
-                            <ShoppingBag />
-                            Giới thiệu cửa hàng
-                        </Button>
-                        <Button size="lg" className="shrink-0 rounded-full" onClick={() => navigate('/products')}>
-                            <Fish />
-                            Tất cả sản phẩm
-                        </Button>
-                    </div>
-
-                    <div className="flex items-center justify-between gap-4 overflow-hidden lg:gap-6 xl:gap-8">
-                        {categories.slice(0, 6).map(category => (
-                            <DropdownMenu key={category.categoryId}>
-                                <DropdownMenuTrigger asChild>
-                                    <Button variant="ghost" size="lg" className="rounded-full">
-                                        {category.name}
-                                    </Button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent>
-                                    <DropdownMenuLabel>{category.name}</DropdownMenuLabel>
-                                    <DropdownMenuSeparator />
-                                    <DropdownMenuItem
-                                        className="cursor-pointer"
-                                        onClick={() => navigate(`/products?category=${category.name.toLowerCase()}`)}
-                                    >
-                                        {category.name}
-                                    </DropdownMenuItem>
-
-                                    {categoryGroup[category.categoryId] &&
-                                        categoryGroup[category.categoryId].map(child => (
-                                            <DropdownMenuItem
-                                                key={child.categoryId}
-                                                className="cursor-pointer"
-                                                onClick={() =>
-                                                    navigate(`/products?category=${child.name.toLowerCase()}`)
-                                                }
-                                            >
-                                                {child.name}
-                                            </DropdownMenuItem>
-                                        ))}
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                        ))}
-                    </div> */}
-
+                <div className="flex w-full items-start justify-center gap-8 lg:gap-6 xl:gap-8">
                     {NAVIGATION_TABS.map(tab => (
                         <NavLink key={tab.href} to={tab.href}>
                             {({ isActive }) => (
                                 <div
                                     className={twMerge(
-                                        'hover:text-primary relative px-2 font-semibold tracking-wide uppercase transition-colors',
+                                        'hover:text-primary relative flex items-center gap-2 px-2 text-center font-semibold tracking-wide capitalize transition-colors',
                                         isActive ? 'text-primary' : 'text-muted-foreground'
                                     )}
                                 >
+                                    {<tab.Icon size={18} className="hidden lg:block" />}
                                     {tab.label}
 
                                     <span

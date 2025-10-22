@@ -54,11 +54,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 </Button>
             </CardFooter>
             {product.discountRate != null && product.discountRate > 0 && (
-                <div className="bg-primary absolute top-8 -left-2 rounded-tr-sm rounded-br-sm">
-                    <span className="text-primary-foreground inline-block w-full px-5 text-center text-base font-semibold">
+                <div className="bg-primary absolute top-8 -left-2 flex h-6 items-center justify-center pr-2 pl-4">
+                    <span className="text-primary-foreground text-center text-base font-semibold">
                         -{product.discountRate}%
                     </span>
-                    <div className="border-primary absolute left-0 border-4 border-b-transparent border-l-transparent"></div>
+                    <div className="border-primary absolute top-full left-0 border-4 border-b-transparent border-l-transparent"></div>
+                    <div className="border-primary absolute top-0 left-full h-full border-12 border-t-transparent border-r-transparent border-b-transparent"></div>
                 </div>
             )}
         </Card>

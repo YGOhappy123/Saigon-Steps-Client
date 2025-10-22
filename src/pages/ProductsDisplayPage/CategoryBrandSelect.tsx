@@ -38,7 +38,7 @@ const CategoryBrandSelect = ({ title, items, selectedItem, onSelectOne, onSelect
                         >
                             {item instanceof Object && 'logoUrl' in item && item.logoUrl && (
                                 <div className="flex aspect-square w-[36px] shrink-0 items-center justify-center rounded-full border bg-white p-0.5">
-                                    <img src={item.logoUrl} className="object-contain" />
+                                    <img src={item.logoUrl} alt={`logo ${item.name}`} className="object-contain" />
                                 </div>
                             )}
                             <span className="mx-auto">{item.name}</span>

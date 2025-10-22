@@ -1,5 +1,5 @@
 import { SiFacebook, SiYoutube, SiTiktok, SiInstagram, SiX, IconType } from '@icons-pack/react-simple-icons'
-import { Bot, House, PencilLine, ScanBarcode, Users } from 'lucide-react'
+import { Bot, House, ScanBarcode, Settings, TicketCheck, Users } from 'lucide-react'
 
 type NavigationTab = {
     label: string
@@ -10,8 +10,9 @@ type NavigationTab = {
 export const NAVIGATION_TABS: NavigationTab[] = [
     { label: 'trang chủ', href: '/', Icon: House },
     { label: 'giới thiệu', href: '/about-us', Icon: Users },
-    { label: 'dịch vụ', href: '/our-services', Icon: PencilLine },
+    { label: 'dịch vụ', href: '/our-services', Icon: Settings },
     { label: 'sản phẩm', href: '/products', Icon: ScanBarcode },
+    { label: 'khuyến mãi', href: '/promotions', Icon: TicketCheck },
     { label: 'tìm kiếm bằng AI', href: '/ai-search', Icon: Bot }
 ]
 
