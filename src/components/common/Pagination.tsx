@@ -52,7 +52,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
                     </span>
                 ) : (
                     <Button
-                        key={p}
+                        key={idx}
                         variant={p === currentPage ? 'default' : 'outline'}
                         className="h-10 w-10"
                         onClick={() => onPageChange(p as number)}

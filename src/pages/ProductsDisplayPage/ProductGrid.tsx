@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ShoppingCart } from 'lucide-react'
 import { Avatar as RadixAvatar, AvatarImage as RadixAvatarImage } from '@radix-ui/react-avatar'
 import { Button } from '@/components/ui/button'
@@ -16,15 +16,24 @@ const ProductGrid = ({ containerClassName, products, resetFilters }: ProductGrid
     const limit = 6
     const lastPage = Math.ceil(products.length / limit)
     const paginatedProducts = products.slice((page - 1) * limit, page * limit)
+    const productListStartRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         setPage(1)
     }, [products])
 
+    useEffect(() => {
+        if (productListStartRef.current) {
+            productListStartRef.current.scrollIntoView({ behavior: 'smooth' })
+        }
+    }, [page])
+
     return (
         <div className={containerClassName}>
             {products.length > 0 ? (
                 <div className="flex flex-col gap-8">
+                    <div ref={productListStartRef} className="-mb-8"></div>
+
                     <div className="grid w-full grid-cols-2 gap-6 lg:grid-cols-3">
                         {paginatedProducts.map(product => (
                             <ProductCard key={product.rootProductId} product={product} />

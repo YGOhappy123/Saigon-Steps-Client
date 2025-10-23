@@ -17,10 +17,9 @@ const HomePage = () => {
     const axios = useAxiosIns()
 
     const fetchAllProductsQuery = useQuery({
-        queryKey: ['products-all'],
+        queryKey: ['home-products'],
         queryFn: () => axios.get<IResponseData<IRootProduct[]>>('/products'),
         enabled: true,
-        refetchInterval: 60000,
         select: res => res.data
     })
     const products = fetchAllProductsQuery.data?.data || []

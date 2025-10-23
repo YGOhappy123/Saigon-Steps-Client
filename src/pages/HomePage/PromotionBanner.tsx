@@ -53,7 +53,7 @@ const PromotionBanner = () => {
                     <img
                         src="/images/promotion-banner-curve.png"
                         alt="banner image - curve"
-                        className="absolute top-0 left-1/2 h-full -translate-x-[40%]"
+                        className="absolute top-0 left-1/2 h-full -translate-x-[35%]"
                     />
 
                     <img

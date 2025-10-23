@@ -38,7 +38,9 @@ const ProductFeaturesDisplay = ({ features }: ProductFeaturesDisplayProps) => {
                         ].map(item => (
                             <TableRow key={item.name}>
                                 <TableCell className="font-medium">{item.label}</TableCell>
-                                <TableCell>{features[item.name as keyof IShoeFeature] as string | number}</TableCell>
+                                <TableCell className="break-words whitespace-normal">
+                                    {features[item.name as keyof IShoeFeature] as string | number}
+                                </TableCell>
                             </TableRow>
                         ))}
                         <TableRow>

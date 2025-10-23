@@ -20,7 +20,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             <CardContent className="p-0">
                 <div className="flex flex-col gap-4">
                     <div
-                        className="group flex aspect-[4/3] items-center justify-center overflow-hidden bg-white"
+                        className="group border-muted flex aspect-[4/3] items-center justify-center overflow-hidden border bg-white shadow-lg"
                         style={{
                             borderRadius: '15px 15px 15px 45px'
                         }}

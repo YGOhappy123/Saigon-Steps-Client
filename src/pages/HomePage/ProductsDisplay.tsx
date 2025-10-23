@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import ProductCard from '@/components/common/ProductCard'
 import Pagination from '@/components/common/Pagination'
 
@@ -9,8 +9,8 @@ type ProductsDisplayProps = {
 const ProductsDisplay = ({ products }: ProductsDisplayProps) => {
     const [page, setPage] = useState<number>(1)
     const limit = 4
-    const lastPage = Math.ceil(products.length / limit)
-    const paginatedProducts = products.slice((page - 1) * limit, page * limit)
+    const lastPage = useMemo(() => Math.ceil(products.length / limit), [products.length])
+    const paginatedProducts = useMemo(() => products.slice((page - 1) * limit, page * limit), [page, products])
 
     useEffect(() => {
         setPage(1)

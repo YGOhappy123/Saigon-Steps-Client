@@ -32,7 +32,7 @@ const ExploreBanner = ({ products }: ExploreBannerProps) => {
                                         <CarouselItem key={product.rootProductId}>
                                             <div className="flex flex-col gap-3 p-12">
                                                 <div className="flex items-center gap-3">
-                                                    {(product.images ?? []).splice(0, 5).map((image, index) => (
+                                                    {(product.images ?? []).slice(0, 5).map((image, index) => (
                                                         <div
                                                             key={index}
                                                             className="flex w-[80px] items-center justify-center overflow-hidden rounded-xl border-2 border-red-400"
