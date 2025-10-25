@@ -4,7 +4,7 @@ import { NAVIGATION_TABS } from '@/configs/constants'
 
 const AppNavbar = () => {
     return (
-        <nav className="bg-background sticky top-0 z-[1000] flex w-full justify-center border-b shadow-md">
+        <nav className="bg-background sticky top-0 z-[100] flex w-full justify-center border-b shadow-md">
             <div className="max-w-container flex w-full items-center justify-between gap-10 p-4 lg:gap-15 xl:gap-25">
                 <div className="flex w-full items-start justify-center gap-8 lg:gap-6 xl:gap-8">
                     {NAVIGATION_TABS.map(tab => (
