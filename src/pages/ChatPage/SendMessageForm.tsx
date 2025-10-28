@@ -9,10 +9,11 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useMutation } from '@tanstack/react-query'
 import { onError } from '@/utils/errorsHandler'
+import { EmojiPicker } from '@/components/common/EmojiPicker'
+import { useThemeContext } from '@/components/container/ThemeProvider'
 import ChatImageUploader from '@/pages/ChatPage/ChatImageUploader'
 import useAxiosIns from '@/hooks/useAxiosIns'
 import fileService from '@/services/fileService'
-import { EmojiPicker } from '@/components/common/EmojiPicker'
 
 const sendMessageFormSchema = z
     .object({
@@ -37,6 +38,7 @@ const SendMessageForm = ({ onOptimisticDisplay }: SendMessageFormProps) => {
     })
 
     const { uploadBase64Mutation } = fileService()
+    const { theme } = useThemeContext()
     const [isDragging, setIsDragging] = useState(false)
     const [isEmojiPickerOpen, setIsEmojiPickerOpen] = useState(false)
     const axios = useAxiosIns()
@@ -154,7 +156,6 @@ const SendMessageForm = ({ onOptimisticDisplay }: SendMessageFormProps) => {
                                 </FormItem>
                             )}
                         />
-
                         <div className="relative">
                             <Button
                                 type="button"
@@ -164,10 +165,9 @@ const SendMessageForm = ({ onOptimisticDisplay }: SendMessageFormProps) => {
                             >
                                 <Smile />
                             </Button>
-
                             {isEmojiPickerOpen && (
                                 <EmojiPicker
-                                    theme="light"
+                                    theme={theme}
                                     onSelect={emoji => {
                                         const currentText = form.getValues('textContent') || ''
                                         form.setValue('textContent', `${currentText} ${emoji}`.trim())
@@ -176,9 +176,7 @@ const SendMessageForm = ({ onOptimisticDisplay }: SendMessageFormProps) => {
                                 />
                             )}
                         </div>
-
                         <ChatImageUploader setImage={image => form.setValue('imageContent', image)} />
-
                         <Button
                             type="submit"
                             className="size-12"

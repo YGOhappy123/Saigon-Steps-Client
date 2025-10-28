@@ -14,6 +14,7 @@ export const EmojiPicker = ({ onSelect, theme = 'light' }: EmojiPickerProps) => 
                 onEmojiSelect={(emoji: any) => onSelect(emoji.native)}
                 theme={theme}
                 previewPosition="none"
+                locale="vi"
             />
         </div>
     )
