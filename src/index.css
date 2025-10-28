@@ -212,6 +212,11 @@ input:-webkit-autofill:active {
 }
 
 /* Font Families */
+@font-face {
+    font-family: 'Strasua';
+    src: url('/fonts/Strasua.ttf') format('truetype');
+}
+
 .font-nunito {
     font-family: 'Nunito', sans-serif;
 }
@@ -222,6 +227,14 @@ input:-webkit-autofill:active {
 
 .font-oswald {
     font-family: 'Oswald', sans-serif;
+}
+
+.font-dancing-script {
+    font-family: 'Dancing Script', 'cursive';
+}
+
+.font-strasua {
+    font-family: 'Strasua', sans-serif;
 }
 
 /* Hide Scrollbar But Keep Functionality */

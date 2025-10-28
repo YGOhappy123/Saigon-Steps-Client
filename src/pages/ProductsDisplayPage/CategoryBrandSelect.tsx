@@ -11,7 +11,7 @@ type CategoryBrandSelectProps = {
 const CategoryBrandSelect = ({ title, items, selectedItem, onSelectOne, onSelectAll }: CategoryBrandSelectProps) => {
     return (
         <ul className="grid grid-cols-5 items-center gap-4">
-            <h2 className="font-[Dancing_Script] text-3xl capitalize">{title}</h2>
+            <h2 className="font-dancing-script text-3xl capitalize">{title}</h2>
             {items.length > 0 && (
                 <li>
                     <Button

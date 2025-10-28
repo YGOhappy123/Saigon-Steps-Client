@@ -66,7 +66,7 @@ const CheckoutPage = () => {
     return (
         <section className="bg-background flex w-full justify-center">
             <div className="max-w-container flex w-full flex-col items-center justify-between px-4 py-24">
-                <h2 className="font-[Dancing_Script] text-4xl capitalize">Xác nhận đơn hàng</h2>
+                <h2 className="font-dancing-script text-4xl capitalize">Xác nhận đơn hàng</h2>
                 <div className="mt-11 grid w-full grid-cols-1 gap-x-11 gap-y-11 lg:grid-cols-5 xl:gap-x-20">
                     <div className="col-span-1 lg:col-span-3">
                         <CheckoutForm handlePlaceOrder={handlePlaceOrder} />

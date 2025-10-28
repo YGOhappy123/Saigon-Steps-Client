@@ -13,7 +13,7 @@ const ExploreBanner = ({ products }: ExploreBannerProps) => {
     return (
         <section className="bg-background flex w-full justify-center">
             <div className="max-w-container flex w-full flex-col items-center px-4 py-24">
-                <h2 className="font-[Dancing_Script] text-4xl capitalize">Khám phá</h2>
+                <h2 className="font-dancing-script text-4xl capitalize">Khám phá</h2>
 
                 <div className="bg-pink relative mt-11 flex h-[450px] w-full justify-center rounded-[20px]">
                     <Carousel

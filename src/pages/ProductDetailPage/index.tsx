@@ -67,7 +67,7 @@ const ProductDetailPage = () => {
     return (
         <section className="bg-background flex w-full justify-center">
             <div className="max-w-container flex w-full flex-col items-center justify-between px-4 py-24">
-                <h2 className="font-[Dancing_Script] text-4xl capitalize">Chi tiết sản phẩm</h2>
+                <h2 className="font-dancing-script text-4xl capitalize">Chi tiết sản phẩm</h2>
                 <div className="mt-11 flex w-full justify-center">
                     {getProductDetailQuery.isLoading && <Skeleton className="h-[200px] w-full" />}
 

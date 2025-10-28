@@ -108,7 +108,7 @@ const ProductsDisplayPage = () => {
     return (
         <section className="bg-background flex w-full justify-center">
             <div className="max-w-container flex w-full flex-col items-center justify-between px-4 py-24">
-                <h2 className="font-[Dancing_Script] text-4xl capitalize">Danh sách sản phẩm</h2>
+                <h2 className="font-dancing-script text-4xl capitalize">Danh sách sản phẩm</h2>
 
                 <div className="mt-11 flex w-full flex-col items-start gap-11 xl:flex-row xl:gap-16">
                     <div className="w-full xl:max-w-[300px]">

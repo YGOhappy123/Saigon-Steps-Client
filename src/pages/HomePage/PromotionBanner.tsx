@@ -41,7 +41,7 @@ const PromotionBanner = () => {
     return (
         <section className="bg-foreground flex w-full justify-center">
             <div className="max-w-container flex w-full flex-col items-center px-4 py-24">
-                <h2 className="text-background font-[Dancing_Script] text-4xl capitalize">Chương trình khuyến mãi</h2>
+                <h2 className="text-background font-dancing-script text-4xl capitalize">Chương trình khuyến mãi</h2>
 
                 <div
                     className="relative mt-11 flex h-[450px] w-full justify-between gap-[200px] overflow-hidden rounded-[20px] pr-10"

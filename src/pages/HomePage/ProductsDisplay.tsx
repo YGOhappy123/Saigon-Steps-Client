@@ -19,7 +19,7 @@ const ProductsDisplay = ({ products }: ProductsDisplayProps) => {
     return (
         <section className="bg-background flex w-full justify-center">
             <div className="max-w-container flex w-full flex-col items-center px-4 py-24">
-                <h2 className="font-[Dancing_Script] text-4xl capitalize">Danh sách sản phẩm</h2>
+                <h2 className="font-dancing-script text-4xl capitalize">Danh sách sản phẩm</h2>
 
                 <div className="mt-11">
                     <div className="flex flex-col gap-8">
