@@ -48,7 +48,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     size="lg"
                     variant="secondary"
                     className="w-full"
-                    onClick={() => navigate(`/products/${product.slug}`)}
+                    onClick={() => navigate(`/san-pham/${product.slug}`)}
                 >
                     Xem chi tiết
                 </Button>

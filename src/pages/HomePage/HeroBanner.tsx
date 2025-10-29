@@ -26,7 +26,7 @@ const HeroBanner = () => {
                     </p>
                     <Button
                         size="xl"
-                        onClick={() => navigate('/products')}
+                        onClick={() => navigate('/san-pham')}
                         className="bg-foreground text-background hover:bg-foreground/90 w-fit rounded-xs"
                     >
                         Xem sản phẩm

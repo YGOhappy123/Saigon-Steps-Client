@@ -6,7 +6,7 @@ import ErrorPage from '@/pages/ErrorPage'
 
 const ProductRoutes = [
     {
-        path: '/products',
+        path: '/san-pham',
         element: (
             <Suspense>
                 <MainLayout />

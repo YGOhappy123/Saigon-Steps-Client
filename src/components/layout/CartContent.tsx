@@ -30,7 +30,7 @@ const CartContent = ({ isLoading, detailedCart, updateCartItemMutation, deleteCa
                         size="lg"
                         variant="outline"
                         className="min-w-[50%] rounded-full text-sm capitalize xl:min-w-[40%]"
-                        onClick={() => navigate('/products')}
+                        onClick={() => navigate('/san-pham')}
                     >
                         <ShoppingCart />
                         Bắt đầu mua sắm
@@ -82,7 +82,7 @@ const CartContentLine = ({ item, isLoading, updateCartItemMutation, deleteCartIt
                         <span className="font-medium">Phân loại: </span>
                         {productItem.size}
                     </p>
-                    <p className="line-clamp-1" onClick={() => navigate(`/products/${productItem.rootProduct.slug}`)}>
+                    <p className="line-clamp-1" onClick={() => navigate(`/san-pham/${productItem.rootProduct.slug}`)}>
                         <span className="font-medium">Số lượng tồn kho: </span>
                         {productItem.availableStock}
                     </p>

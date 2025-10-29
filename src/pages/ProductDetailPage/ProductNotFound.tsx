@@ -16,7 +16,7 @@ const ProductNotFound = () => {
                 size="lg"
                 variant="outline"
                 className="min-w-[50%] rounded-full text-sm capitalize xl:min-w-[40%]"
-                onClick={() => navigate('/products')}
+                onClick={() => navigate('/san-pham')}
             >
                 <ShoppingCart />
                 Xem các sản phẩm khác

@@ -21,12 +21,12 @@ export const sidebarGroups: SidebarGroupData[] = [
             {
                 title: 'Thông tin cá nhân',
                 icon: UserIcon,
-                url: '/profile/edit'
+                url: '/trang-ca-nhan/cap-nhat-thong-tin'
             },
             {
                 title: 'Đổi mật khẩu',
                 icon: LockKeyhole,
-                url: '/profile/change-password'
+                url: '/trang-ca-nhan/doi-mat-khau'
             }
         ]
     },
@@ -36,7 +36,7 @@ export const sidebarGroups: SidebarGroupData[] = [
             {
                 title: 'Trò chuyện trực tuyến',
                 icon: MessageCircleMore,
-                url: '/profile/chat'
+                url: '/trang-ca-nhan/tro-chuyen'
             }
         ]
     },
@@ -46,12 +46,12 @@ export const sidebarGroups: SidebarGroupData[] = [
             {
                 title: 'Đơn hàng của tôi',
                 icon: ShoppingCart,
-                url: '/profile/orders'
+                url: '/trang-ca-nhan/don-hang'
             },
             {
                 title: 'Danh sách địa chỉ',
                 icon: MapPin,
-                url: '/profile/addresses'
+                url: '/trang-ca-nhan/dia-chi'
             }
         ]
     }

@@ -143,7 +143,7 @@ const HeaderSearchbar = () => {
                                     setSearchTerm('')
                                     setSearchResult([])
                                     setInputFocusing(false)
-                                    navigate(`/products/${product.slug}`)
+                                    navigate(`/san-pham/${product.slug}`)
                                 }}
                             />
                         ))}

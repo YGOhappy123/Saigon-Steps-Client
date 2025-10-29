@@ -9,11 +9,11 @@ type NavigationTab = {
 
 export const NAVIGATION_TABS: NavigationTab[] = [
     { label: 'trang chủ', href: '/', Icon: House },
-    { label: 'giới thiệu', href: '/about-us', Icon: Users },
-    { label: 'dịch vụ', href: '/our-services', Icon: Settings },
-    { label: 'sản phẩm', href: '/products', Icon: ScanBarcode },
-    { label: 'khuyến mãi', href: '/promotions', Icon: TicketCheck },
-    { label: 'tìm kiếm bằng AI', href: '/ai-search', Icon: Bot }
+    { label: 'giới thiệu', href: '/gioi-thieu', Icon: Users },
+    { label: 'dịch vụ', href: '/dich-vu', Icon: Settings },
+    { label: 'sản phẩm', href: '/san-pham', Icon: ScanBarcode },
+    { label: 'khuyến mãi', href: '/khuyen-mai', Icon: TicketCheck },
+    { label: 'tìm kiếm bằng AI', href: '/tim-kiem-ai', Icon: Bot }
 ]
 
 type SocialLink = {

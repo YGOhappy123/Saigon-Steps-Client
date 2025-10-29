@@ -39,7 +39,7 @@ const ThankYouPage = () => {
                     <div className="mt-[30px] grid w-full grid-cols-1 gap-6 lg:grid-cols-2">
                         <button
                             className="col-span-1 flex h-[60px] cursor-pointer items-center justify-center gap-3 rounded-full bg-[#699282] font-semibold tracking-widest text-[#D9D9D9] uppercase hover:bg-[#699282]/90"
-                            onClick={() => navigate('/profile/orders')}
+                            onClick={() => navigate('/trang-ca-nhan/don-hang')}
                         >
                             <Footprints /> Quản lý đơn
                         </button>

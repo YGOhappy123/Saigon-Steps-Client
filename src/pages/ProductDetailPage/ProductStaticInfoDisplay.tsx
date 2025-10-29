@@ -20,7 +20,7 @@ const ProductStaticInfoDisplay = ({ product }: ProductStaticInfoDisplayProps) =>
                 Thương hiệu:
                 <div
                     className="hover:text-primary flex cursor-pointer items-center gap-2"
-                    onClick={() => navigate(`/products?brand=${brand.name.toLowerCase()}`)}
+                    onClick={() => navigate(`/san-pham?thuong-hieu=${brand.name.toLowerCase()}`)}
                 >
                     <span className="font-semibold">{brand.name}</span>
                     {brand.logoUrl && (

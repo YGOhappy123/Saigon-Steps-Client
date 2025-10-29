@@ -41,9 +41,11 @@ const ProductsDisplayPage = () => {
     const brands = fetchAllBrandsQuery.data?.data || []
 
     useEffect(() => {
-        const activeBrand = brands?.find(brand => brand.name.toLowerCase() === searchParams.get('brand')?.toLowerCase())
+        const activeBrand = brands?.find(
+            brand => brand.name.toLowerCase() === searchParams.get('thuong-hieu')?.toLowerCase()
+        )
         setSearchBrand(activeBrand?.brandId ?? 0)
-    }, [searchParams.get('brand'), brands])
+    }, [searchParams.get('thuong-hieu'), brands])
 
     // Category filter
     const fetchAllCategoriesQuery = useQuery({
@@ -56,10 +58,10 @@ const ProductsDisplayPage = () => {
 
     useEffect(() => {
         const activeCategory = categories?.find(
-            category => category.name.toLowerCase() === searchParams.get('category')?.toLowerCase()
+            category => category.name.toLowerCase() === searchParams.get('danh-muc')?.toLowerCase()
         )
         setSearchCategory(activeCategory?.categoryId ?? 0)
-    }, [searchParams.get('category'), categories])
+    }, [searchParams.get('danh-muc'), categories])
 
     // Product filter
     const fetchAllProductsQuery = useQuery({
@@ -129,16 +131,16 @@ const ProductsDisplayPage = () => {
                         <CategoryBrandSelect
                             title="Danh mục"
                             items={categories}
-                            selectedItem={searchParams.get('category')}
-                            onSelectOne={item => updateParam('category', item.name)}
-                            onSelectAll={() => updateParam('category')}
+                            selectedItem={searchParams.get('danh-muc')}
+                            onSelectOne={item => updateParam('danh-muc', item.name)}
+                            onSelectAll={() => updateParam('danh-muc')}
                         />
                         <CategoryBrandSelect
                             title="Thương hiệu"
                             items={brands}
-                            selectedItem={searchParams.get('brand')}
-                            onSelectOne={item => updateParam('brand', item.name)}
-                            onSelectAll={() => updateParam('brand')}
+                            selectedItem={searchParams.get('thuong-hieu')}
+                            onSelectOne={item => updateParam('thuong-hieu', item.name)}
+                            onSelectAll={() => updateParam('thuong-hieu')}
                         />
                         <ProductGrid
                             containerClassName="xl:mt-5"

@@ -42,7 +42,7 @@ const AppHeader = () => {
                                 variant="ghost"
                                 size="icon"
                                 className="hidden lg:inline-flex"
-                                onClick={() => navigate('/profile/chat')}
+                                onClick={() => navigate('/trang-ca-nhan/tro-chuyen')}
                             >
                                 <MessageCircleMore />
                             </Button>
@@ -52,7 +52,7 @@ const AppHeader = () => {
                                     variant="ghost"
                                     size="xl"
                                     className="border-primary bg-primary/80 ml-1 flex aspect-square items-center justify-center overflow-hidden rounded-full border-2 p-0"
-                                    onClick={() => navigate('/profile/edit')}
+                                    onClick={() => navigate('/trang-ca-nhan/cap-nhat-thong-tin')}
                                 >
                                     <img src={user.avatar} alt="user avatar" className="h-full w-full object-cover" />
                                 </Button>
@@ -74,7 +74,7 @@ const AppHeader = () => {
                                 navigate('/')
                                 toast('Đăng xuất thành công', toastConfig('success'))
                             } else {
-                                navigate('/auth')
+                                navigate('/xac-thuc')
                             }
                         }}
                     >

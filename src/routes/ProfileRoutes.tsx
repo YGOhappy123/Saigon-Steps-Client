@@ -11,36 +11,36 @@ import ErrorPage from '@/pages/ErrorPage'
 
 const ProfileRoutes = [
     {
-        path: '/profile',
+        path: '/trang-ca-nhan',
         element: (
             <Suspense>
-                <AuthProtector children={<ProfileLayout />} redirect="/auth" />
+                <AuthProtector children={<ProfileLayout />} redirect="/xac-thuc" />
             </Suspense>
         ),
         errorElement: <ErrorPage />,
         children: [
             {
                 path: '',
-                element: <Navigate to="/profile/edit" replace />
+                element: <Navigate to="/trang-ca-nhan/cap-nhat-thong-tin" replace />
             },
             {
-                path: 'edit',
+                path: 'cap-nhat-thong-tin',
                 element: <EditProfilePage />
             },
             {
-                path: 'change-password',
+                path: 'doi-mat-khau',
                 element: <ChangePasswordPage />
             },
             {
-                path: 'chat',
+                path: 'tro-chuyen',
                 element: <ChatPage />
             },
             {
-                path: 'orders',
+                path: 'don-hang',
                 element: <OrderManagementPage />
             },
             {
-                path: 'addresses',
+                path: 'dia-chi',
                 element: <AddressManagementPage />
             }
         ]

@@ -7,7 +7,7 @@ import ErrorPage from '@/pages/ErrorPage'
 
 const OrderRoutes = [
     {
-        path: '/orders',
+        path: '/don-hang',
         element: (
             <Suspense>
                 <FragmentLayout />
@@ -16,12 +16,12 @@ const OrderRoutes = [
         errorElement: <ErrorPage />,
         children: [
             {
-                path: 'checkout',
-                element: <AuthProtector children={<CheckoutPage />} redirect="/auth" />
+                path: 'thanh-toan',
+                element: <AuthProtector children={<CheckoutPage />} redirect="/xac-thuc" />
             },
             {
-                path: 'thank-you/:orderId?',
-                element: <AuthProtector children={<ThankYouPage />} redirect="/auth" />
+                path: 'tri-an/:orderId?',
+                element: <AuthProtector children={<ThankYouPage />} redirect="/xac-thuc" />
             }
         ]
     }

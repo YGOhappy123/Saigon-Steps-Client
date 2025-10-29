@@ -57,7 +57,7 @@ const ExploreBanner = ({ products }: ExploreBannerProps) => {
                                                     size="lg"
                                                     variant="secondary"
                                                     className="w-fit"
-                                                    onClick={() => navigate(`/products/${product.slug}`)}
+                                                    onClick={() => navigate(`/san-pham/${product.slug}`)}
                                                 >
                                                     Xem chi tiết
                                                 </Button>

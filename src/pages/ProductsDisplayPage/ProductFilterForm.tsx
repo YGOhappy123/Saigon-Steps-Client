@@ -181,7 +181,7 @@ const ProductFilterForm = ({
                                 <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-600" />
                             )}
                         </Button>
-                        <Button type="button" onClick={() => navigate('/ai-search')}>
+                        <Button type="button" onClick={() => navigate('/tim-kiem-ai')}>
                             <Bot /> Tìm kiếm bằng AI
                         </Button>
                     </div>

@@ -159,7 +159,7 @@ const OrderProductLine = ({ item }: OrderProductLineProps) => {
                         <span className="font-medium">Phân loại: </span>
                         {productItem.size}
                     </p>
-                    <p className="line-clamp-1" onClick={() => navigate(`/products/${productItem.rootProduct.slug}`)}>
+                    <p className="line-clamp-1" onClick={() => navigate(`/san-pham/${productItem.rootProduct.slug}`)}>
                         <span className="font-medium">Số lượng tồn kho: </span>
                         {productItem.availableStock}
                     </p>

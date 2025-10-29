@@ -75,7 +75,7 @@ const PromotionBanner = () => {
                                 Số sản phẩm được giảm giá: {uniqueProductIds.length.toString().padStart(2, '0')}
                             </p>
                         </div>
-                        <Button variant="warning" onClick={() => navigate('/promotions')}>
+                        <Button variant="warning" onClick={() => navigate('/khuyen-mai')}>
                             Xem chi tiết
                         </Button>
                     </div>

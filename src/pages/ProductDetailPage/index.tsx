@@ -132,7 +132,7 @@ const ProductDetailPage = () => {
                                                 variant="secondary"
                                                 size="xl"
                                                 className="rounded-full text-base capitalize"
-                                                onClick={() => navigate('/products')}
+                                                onClick={() => navigate('/san-pham')}
                                             >
                                                 Xem sản phẩm khác
                                             </Button>

@@ -1,4 +1,5 @@
 import { Suspense } from 'react'
+import { Navigate } from 'react-router-dom'
 import MainLayout from '@/layouts/MainLayout'
 import HomePage from '@/pages/HomePage'
 import AboutUsPage from '@/pages/AboutUsPage'
@@ -17,14 +18,18 @@ const MainRoutes = [
         children: [
             {
                 path: '',
+                element: <Navigate to="/trang-chu" replace />
+            },
+            {
+                path: 'trang-chu',
                 element: <HomePage />
             },
             {
-                path: 'about-us',
+                path: 'gioi-thieu',
                 element: <AboutUsPage />
             },
             {
-                path: 'our-services',
+                path: 'dich-vu',
                 element: <OurServicesPage />
             }
         ]

@@ -39,7 +39,7 @@ const CheckoutPage = () => {
         }
 
         const res = await placeOrderMutation.mutateAsync(orderInfo)
-        navigate(`/orders/thank-you/${res.data.data.orderId}`)
+        navigate(`/don-hang/tri-an/${res.data.data.orderId}`)
     }
 
     if (isLoading) {

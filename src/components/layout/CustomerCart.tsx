@@ -95,7 +95,7 @@ const CustomerCart = ({ trigger }: CustomerCartProps) => {
                         <Button
                             size="xl"
                             className="rounded-full text-base capitalize"
-                            onClick={() => navigate('/orders/checkout')}
+                            onClick={() => navigate('/don-hang/thanh-toan')}
                             disabled={totalCount === 0}
                         >
                             <CircleDollarSign />

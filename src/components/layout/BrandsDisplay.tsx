@@ -23,13 +23,13 @@ const BrandsDisplay = () => {
                     .map(brand => (
                         <div key={brand.brandId} className="flex flex-col items-center justify-center gap-2">
                             <div
-                                onClick={() => navigate(`/products?brand=${brand.name.toLowerCase()}`)}
+                                onClick={() => navigate(`/san-pham?thuong-hieu=${brand.name.toLowerCase()}`)}
                                 className="flex aspect-square w-[56px] shrink-0 cursor-pointer items-center justify-center rounded-full border bg-white p-0.5"
                             >
                                 <img src={brand.logoUrl} alt={`logo ${brand.name}`} className="object-contain" />
                             </div>
                             <span
-                                onClick={() => navigate(`/products?brand=${brand.name.toLowerCase()}`)}
+                                onClick={() => navigate(`/san-pham?thuong-hieu=${brand.name.toLowerCase()}`)}
                                 className="text-background cursor-pointer text-center text-lg font-medium"
                             >
                                 {brand.name}

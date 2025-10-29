@@ -80,7 +80,7 @@ const ChooseAddressSection = ({ setCheckoutDisabled, setData }: ChooseAddressSec
             )}
 
             <div className="flex items-center gap-3">
-                <Button type="button" onClick={() => navigate('/profile/addresses')}>
+                <Button type="button" onClick={() => navigate('/trang-ca-nhan/dia-chi')}>
                     <MapPin /> Thêm địa chỉ
                 </Button>
 
