@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import { Quote } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import QuoteBox from '@/components/common/QuoteBox'
 
 const OurStoryBrief = () => {
     const navigate = useNavigate()
@@ -47,16 +47,10 @@ const OurStoryBrief = () => {
                                 Tên gọi “Saigon Steps” được lấy cảm hứng từ chính nhịp sống năng động của thành phố Hồ
                                 Chí Minh - nơi những bước chân không bao giờ ngừng nghỉ. Chúng tôi tin rằng:
                             </p>
-                            <div className="bg-muted-foreground relative w-fit rounded px-9 py-4">
-                                <span className="text-muted text-lg font-medium italic">
-                                    Mỗi bước đi là một hành trình, và đôi giày tốt sẽ khiến hành trình đó thêm đáng nhớ
-                                </span>
-                                <Quote
-                                    className="text-muted/50 absolute top-2 right-2 rotate-180 rotate-y-180"
-                                    size={20}
-                                />
-                                <Quote className="text-muted/50 absolute top-2 left-2 rotate-y-180" size={20} />
-                            </div>
+                            <QuoteBox
+                                content="Mỗi bước đi là một hành trình, và đôi giày tốt sẽ khiến hành trình đó thêm đáng nhớ"
+                                reverseColors
+                            />
                         </div>
                         <Button
                             size="xl"

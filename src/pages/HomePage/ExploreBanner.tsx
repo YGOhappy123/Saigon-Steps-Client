@@ -31,11 +31,11 @@ const ExploreBanner = ({ products }: ExploreBannerProps) => {
                                     .map(product => (
                                         <CarouselItem key={product.rootProductId}>
                                             <div className="flex flex-col gap-3 p-12">
-                                                <div className="flex items-center gap-3">
+                                                <div className="grid w-fit grid-cols-5 gap-3">
                                                     {(product.images ?? []).slice(0, 5).map((image, index) => (
                                                         <div
                                                             key={index}
-                                                            className="flex w-[80px] items-center justify-center overflow-hidden rounded-xl border-2 border-red-400"
+                                                            className="flex w-[80px] items-center justify-center overflow-hidden rounded-xl border-2 border-pink-400"
                                                         >
                                                             <img
                                                                 src={image as string}
@@ -49,14 +49,14 @@ const ExploreBanner = ({ products }: ExploreBannerProps) => {
                                                     <h3 className="line-clamp-1 text-3xl font-medium text-white">
                                                         {product.name}
                                                     </h3>
-                                                    <p className="line-clamp-3 text-white/80">
+                                                    <p className="line-clamp-3 text-justify text-white/80">
                                                         {striptags(product.description)}
                                                     </p>
                                                 </div>
                                                 <Button
                                                     size="lg"
                                                     variant="secondary"
-                                                    className="w-fit"
+                                                    className="w-fit bg-white text-black hover:bg-white/80"
                                                     onClick={() => navigate(`/san-pham/${product.slug}`)}
                                                 >
                                                     Xem chi tiết

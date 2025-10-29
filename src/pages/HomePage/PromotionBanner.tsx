@@ -10,11 +10,12 @@ const PromotionBanner = () => {
     const navigate = useNavigate()
     const axios = useAxiosIns()
 
-    const fetchAllPromotionsQuery = useQuery({
-        queryKey: ['promotions-all'],
+    const fetchTodayPromotionsQuery = useQuery({
+        queryKey: ['promotions-today'],
         queryFn: () =>
             axios.get<IResponseData<IPromotion[]>>(
                 `/promotions?filter=${JSON.stringify({
+                    isAvailable: true,
                     startApplyTime: dayjs(new Date()).format('YYYY-MM-DD'),
                     endApplyTime: dayjs(new Date()).format('YYYY-MM-DD')
                 })}`
@@ -22,7 +23,7 @@ const PromotionBanner = () => {
         enabled: true,
         select: res => res.data
     })
-    const promotions = fetchAllPromotionsQuery.data?.data || []
+    const promotions = fetchTodayPromotionsQuery.data?.data || []
 
     const maxDiscountRate = useMemo(() => {
         if (promotions.length === 0) return 0

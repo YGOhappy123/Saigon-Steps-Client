@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
-import { Footprints, HandHeart, Quote } from 'lucide-react'
+import { Footprints, HandHeart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import QuoteBox from '@/components/common/QuoteBox'
 
 const MissionAndVision = () => {
     const navigate = useNavigate()
@@ -71,16 +72,7 @@ const MissionAndVision = () => {
                             bạn kể câu chuyện riêng của chính mình. Dù bạn là người yêu sự năng động, thanh lịch hay cá
                             tính, chúng tôi luôn có đôi giày dành cho bạn.
                         </p>
-                        <div className="bg-muted relative w-fit rounded px-9 py-4">
-                            <span className="text-muted-foreground text-lg font-medium italic">
-                                Saigon Steps ~ Where Style Begins!
-                            </span>
-                            <Quote
-                                className="text-muted-foreground/50 absolute top-2 right-2 rotate-180 rotate-y-180"
-                                size={20}
-                            />
-                            <Quote className="text-muted-foreground/50 absolute top-2 left-2 rotate-y-180" size={20} />
-                        </div>
+                        <QuoteBox content="Saigon Steps ~ Where Style Begins!" />
                     </div>
                     <Button
                         size="xl"

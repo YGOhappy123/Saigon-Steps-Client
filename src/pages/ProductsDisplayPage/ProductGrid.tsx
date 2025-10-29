@@ -16,15 +16,15 @@ const ProductGrid = ({ containerClassName, products, resetFilters }: ProductGrid
     const limit = 6
     const lastPage = Math.ceil(products.length / limit)
     const paginatedProducts = products.slice((page - 1) * limit, page * limit)
-    const productListStartRef = useRef<HTMLDivElement>(null)
+    const productsListStartRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         setPage(1)
     }, [products])
 
     useEffect(() => {
-        if (productListStartRef.current) {
-            productListStartRef.current.scrollIntoView({ behavior: 'smooth' })
+        if (productsListStartRef.current) {
+            productsListStartRef.current.scrollIntoView({ behavior: 'smooth' })
         }
     }, [page])
 
@@ -32,7 +32,7 @@ const ProductGrid = ({ containerClassName, products, resetFilters }: ProductGrid
         <div className={containerClassName}>
             {products.length > 0 ? (
                 <div className="flex flex-col gap-8">
-                    <div ref={productListStartRef} className="-mb-8"></div>
+                    <div ref={productsListStartRef} className="-mb-8"></div>
 
                     <div className="grid w-full grid-cols-2 gap-6 lg:grid-cols-3">
                         {paginatedProducts.map(product => (
@@ -47,7 +47,7 @@ const ProductGrid = ({ containerClassName, products, resetFilters }: ProductGrid
                     <RadixAvatar className="w-[50%] xl:w-[40%]">
                         <RadixAvatarImage src="/images/empty-cart.png" alt="empty cart"></RadixAvatarImage>
                     </RadixAvatar>
-                    <p className="text-sm font-semibold">Các sản phẩm trong danh mục này đã hết hàng!</p>
+                    <p className="text-sm font-semibold">Các sản phẩm trong mục này đã hết hàng!</p>
                     <Button
                         size="lg"
                         variant="outline"

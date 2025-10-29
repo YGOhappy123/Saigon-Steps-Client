@@ -28,6 +28,7 @@
     --color-success: var(--success);
     --color-warning: var(--warning);
     --color-pink: var(--pink);
+    --color-orange: var(--orange);
     --color-border: var(--border);
     --color-input: var(--input);
     --color-ring: var(--ring);
@@ -112,6 +113,7 @@
     --success: oklch(64.8% 0.2 131.684);
     --warning: oklch(0.852 0.199 91.936);
     --pink: oklab(76.227% 0.13213 0.04028);
+    --orange: oklab(78.279% 0.06781 0.15367);
     --border: oklch(0.92 0.004 286.32);
     --input: oklch(0.92 0.004 286.32);
     --ring: oklch(0.623 0.214 259.815);
@@ -149,6 +151,7 @@
     --success: oklch(64.8% 0.2 131.684);
     --warning: oklch(0.795 0.184 86.047);
     --pink: oklab(79.172% 0.11617 0.03401);
+    --orange: oklab(78.279% 0.06781 0.15367);
     --border: oklch(1 0 0 / 10%);
     --input: oklch(1 0 0 / 15%);
     --ring: oklch(0.488 0.243 264.376);

@@ -4,8 +4,8 @@ import { useQuery } from '@tanstack/react-query'
 import useTitle from '@/hooks/useTitle'
 import useAxiosIns from '@/hooks/useAxiosIns'
 import ProductFilterForm from '@/pages/ProductsDisplayPage/ProductFilterForm'
-import CategoryBrandSelect from '@/pages/ProductsDisplayPage/CategoryBrandSelect'
 import ProductGrid from '@/pages/ProductsDisplayPage/ProductGrid'
+import CategoryBrandSelect from '@/components/common/CategoryBrandSelect'
 
 const ProductsDisplayPage = () => {
     useTitle('Saigon Steps | Danh sách sản phẩm')

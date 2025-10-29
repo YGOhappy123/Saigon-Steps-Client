@@ -4,6 +4,7 @@ import MainLayout from '@/layouts/MainLayout'
 import HomePage from '@/pages/HomePage'
 import AboutUsPage from '@/pages/AboutUsPage'
 import OurServicesPage from '@/pages/OurServicesPage'
+import PromotionsPage from '@/pages/PromotionsPage'
 import ErrorPage from '@/pages/ErrorPage'
 
 const MainRoutes = [
@@ -31,6 +32,10 @@ const MainRoutes = [
             {
                 path: 'dich-vu',
                 element: <OurServicesPage />
+            },
+            {
+                path: 'khuyen-mai',
+                element: <PromotionsPage />
             }
         ]
     }
