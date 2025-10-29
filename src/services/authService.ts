@@ -128,7 +128,7 @@ const authService = () => {
     })
 
     const deactivateAccountMutation = useMutation({
-        mutationFn: () => axios.post<IResponseData<any>>(`/auth/deactivate-account`),
+        mutationFn: () => axios.post<IResponseData<any>>('/auth/deactivate-account'),
         onError: onError,
         onSuccess: res => {
             toast(getMappedMessage(res.data.message), toastConfig('success'))

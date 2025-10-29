@@ -6,7 +6,7 @@ const MissionAndVision = () => {
     const navigate = useNavigate()
 
     return (
-        <section id="mission-and-vision" className="bg-background flex w-full justify-center">
+        <section id="su-menh" className="bg-background flex w-full justify-center">
             <div className="max-w-container flex w-full flex-col items-center gap-8 px-4 py-24 lg:flex-row lg:items-start">
                 <div className="relative grid grid-cols-[repeat(4,124px)] grid-rows-[repeat(9,53px)] gap-2">
                     <div className="bg-background col-span-3 col-start-1 row-span-3 row-start-1 rounded-2xl p-2 shadow-lg">

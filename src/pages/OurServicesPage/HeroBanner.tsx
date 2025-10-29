@@ -28,7 +28,7 @@ const HeroBanner = () => {
                             riêng biệt và độc đáo.
                         </p>
                     </div>
-                    <a href="#services">
+                    <a href="#dich-vu">
                         <Button
                             size="xl"
                             className="bg-foreground text-background hover:bg-foreground/90 w-fit rounded-xs"

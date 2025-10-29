@@ -28,7 +28,7 @@ const HeroBanner = () => {
                             hứng, nơi phong cách cá nhân được tỏa sáng.
                         </p>
                     </div>
-                    <a href="#our-story">
+                    <a href="#cau-chuyen">
                         <Button
                             size="xl"
                             className="bg-foreground text-background hover:bg-foreground/90 w-fit rounded-xs"

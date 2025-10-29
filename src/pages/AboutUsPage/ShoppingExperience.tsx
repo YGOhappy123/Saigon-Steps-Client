@@ -5,7 +5,7 @@ const ShoppingExperience = () => {
     const previousYear = (new Date().getFullYear() - 1).toString()
 
     return (
-        <section id="shopping-experience" className="bg-foreground flex w-full justify-center">
+        <section id="trai-nghiem" className="bg-foreground flex w-full justify-center">
             <div className="max-w-container flex w-full flex-col items-center gap-8 px-4 py-24 lg:flex-row lg:items-start">
                 <div className="text-background flex flex-col gap-6 lg:px-4">
                     <h1 className="text-3xl leading-snug font-bold tracking-wider text-balance capitalize lg:text-4xl xl:text-5xl">
@@ -39,7 +39,7 @@ const ShoppingExperience = () => {
                             trung và khác biệt - đúng như tinh thần của thương hiệu.
                         </p>
                     </div>
-                    <a href="#mission-and-vision">
+                    <a href="#su-menh">
                         <Button
                             size="xl"
                             className="bg-background text-foreground hover:bg-background/90 w-fit rounded-xs"

@@ -6,6 +6,8 @@ import HeroBanner from '@/pages/HomePage/HeroBanner'
 import ExploreBanner from '@/pages/HomePage/ExploreBanner'
 import ProductsDisplay from '@/pages/HomePage/ProductsDisplay'
 import PromotionBanner from '@/pages/HomePage/PromotionBanner'
+import OurStoryBrief from '@/pages/HomePage/OurStoryBrief'
+import ServicesListBrief from '@/pages/HomePage/ServicesListBrief'
 import BrandsDisplay from '@/components/layout/BrandsDisplay'
 
 const HomePage = () => {
@@ -31,6 +33,8 @@ const HomePage = () => {
             <ExploreBanner products={products} />
             <PromotionBanner />
             <ProductsDisplay products={products} />
+            <OurStoryBrief />
+            <ServicesListBrief />
         </>
     )
 }

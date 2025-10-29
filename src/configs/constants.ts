@@ -8,7 +8,7 @@ type NavigationTab = {
 }
 
 export const NAVIGATION_TABS: NavigationTab[] = [
-    { label: 'trang chủ', href: '/', Icon: House },
+    { label: 'trang chủ', href: '/trang-chu', Icon: House },
     { label: 'giới thiệu', href: '/gioi-thieu', Icon: Users },
     { label: 'dịch vụ', href: '/dich-vu', Icon: Settings },
     { label: 'sản phẩm', href: '/san-pham', Icon: ScanBarcode },

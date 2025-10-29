@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { RootState } from '@/store'
 import useMediaQuery from '@/hooks/useMediaQuery'
 
-const ServicesList = () => {
+const ServicesListBrief = () => {
     const navigate = useNavigate()
     const isLg = useMediaQuery('(min-width: 1024px)')
     const isLogged = useSelector((state: RootState) => state.auth.isLogged)
@@ -81,40 +81,14 @@ const ServicesList = () => {
                     />
                 </div>
 
-                <div className="mt-11 flex w-full flex-col items-start gap-11 lg:flex-row-reverse lg:gap-8">
-                    <ServiceImage imageUrl="/images/osp-service-4.jpg" />
-                    <ServiceDescription
-                        title="4. Giao hàng tận nơi toàn quốc"
-                        content={[
-                            'Không cần đến trực tiếp cửa hàng, bạn vẫn có thể dễ dàng đặt hàng trực tuyến qua website hoặc mạng xã hội của chúng tôi.',
-                            'Saigon Steps cam kết giao hàng nhanh - đóng gói kỹ - thanh toán linh hoạt, mang lại sự tiện lợi tối đa cho mọi khách hàng trên toàn quốc.'
-                        ]}
-                        alignRight={isLg}
-                    />
-                </div>
-
-                <div className="mt-11 flex w-full flex-col items-start gap-11 lg:flex-row lg:gap-8">
-                    <ServiceImage imageUrl="/images/osp-service-5.jpg" />
-                    <ServiceDescription
-                        title="5. Chính sách đổi trả & bảo hành"
-                        content={[
-                            'Chúng tôi hiểu rằng sự hài lòng của khách hàng là ưu tiên hàng đầu. Vì vậy, Saigon Steps có chính sách đổi trả linh hoạt trong trường hợp sản phẩm không vừa hoặc có lỗi sản xuất trong thời hạn 07 ngày kể từ ngày mua hàng.',
-                            'Ngoài ra, chúng tôi còn bảo hành sản phẩm trong thời gian quy định, giúp khách hàng yên tâm hơn khi mua sắm.'
-                        ]}
-                    />
-                </div>
-
-                <div className="mt-11 flex w-full flex-col items-start gap-11 lg:flex-row-reverse lg:gap-8">
-                    <ServiceImage imageUrl="/images/osp-service-6.jpg" />
-                    <ServiceDescription
-                        title="6. Hợp tác & phân phối"
-                        content={[
-                            'Saigon Steps luôn mở rộng cơ hội hợp tác với đại lý, cửa hàng và đối tác thời trang trên toàn quốc.',
-                            'Chúng tôi cung cấp chính sách phân phối linh hoạt, giá sỉ hấp dẫn cùng hỗ trợ truyền thông - giúp đối tác cùng phát triển và lan tỏa thương hiệu đến nhiều khách hàng hơn.',
-                            'Nếu bạn là một nhà thiết kế, nhà sản xuất hoặc đơn vị phân phối, hãy liên hệ với chúng tôi để thảo luận về cơ hội hợp tác.'
-                        ]}
-                        alignRight={isLg}
-                    />
+                <div className="mt-11 flex justify-center">
+                    <Button
+                        size="xl"
+                        onClick={() => navigate('/dich-vu')}
+                        className="bg-foreground text-background hover:bg-foreground/90 w-fit rounded-xs px-20"
+                    >
+                        Xem tất cả dịch vụ
+                    </Button>
                 </div>
             </div>
         </section>
@@ -172,4 +146,4 @@ const ServiceDescription = ({ title, alignRight, content, ButtonElement }: Servi
     )
 }
 
-export default ServicesList
+export default ServicesListBrief

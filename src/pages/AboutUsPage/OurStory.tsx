@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 
 const OurStory = () => {
     return (
-        <section id="our-story" className="bg-background flex w-full justify-center">
+        <section id="cau-chuyen" className="bg-background flex w-full justify-center">
             <div className="max-w-container flex w-full flex-col items-center gap-8 px-4 py-24 lg:flex-row lg:items-start">
                 <div className="grid grid-cols-[200px_120px_200px] grid-rows-[90px_360px_90px]">
                     <div className="bg-background col-span-2 col-start-1 row-span-2 row-start-1 rounded-3xl p-4 shadow-lg">
@@ -52,7 +52,7 @@ const OurStory = () => {
                             <Quote className="text-muted-foreground/50 absolute top-2 left-2 rotate-y-180" size={20} />
                         </div>
                     </div>
-                    <a href="#shopping-experience">
+                    <a href="#trai-nghiem">
                         <Button
                             size="xl"
                             className="bg-foreground text-background hover:bg-foreground/90 w-fit rounded-xs"
