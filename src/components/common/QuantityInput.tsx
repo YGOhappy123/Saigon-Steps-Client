@@ -31,7 +31,7 @@ const QuantityInput = ({ isLoading, initValue, maximum, onChange }: QuantityInpu
     }
 
     return (
-        <div className="flex w-[100px] items-center justify-between rounded-md border-2">
+        <div className="flex w-full items-center justify-between rounded-md border-2">
             {maximum === 0 && (
                 <Button variant="secondary" disabled>
                     Hết hàng

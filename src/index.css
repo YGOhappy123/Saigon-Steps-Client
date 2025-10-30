@@ -253,3 +253,8 @@ input:-webkit-autofill:active {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+/* CSS Overrides */
+[data-radix-popper-content-wrapper] {
+    z-index: 2000 !important;
+}

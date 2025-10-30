@@ -8,7 +8,6 @@ type DetailedProductItem = {
     productItemId: number
     rootProductId: number
     size: string
-    availableStock: number
     rootProduct: Pick<
         IRootProduct,
         | 'rootProductId'
@@ -22,6 +21,7 @@ type DetailedProductItem = {
         | 'brand'
         | 'images'
         | 'shoeFeature'
+        | 'productItems'
     >
 }
 

@@ -7,6 +7,7 @@ import { DetailedCart } from '@/hooks/useCustomerCart'
 import { Badge } from '@/components/ui/badge'
 import formatCurrency from '@/utils/formatCurrency'
 import QuantityInput from '@/components/common/QuantityInput'
+import SizeSelect from '@/components/common/SizeSelect'
 
 type CartContentProps = {
     isLoading: boolean
@@ -45,6 +46,7 @@ const CartContent = ({ isLoading, detailedCart, updateCartItemMutation, deleteCa
                             isLoading={isLoading}
                             updateCartItemMutation={updateCartItemMutation}
                             deleteCartItemMutation={deleteCartItemMutation}
+                            detailedCart={detailedCart}
                         />
                     ))}
                 </div>
@@ -56,14 +58,28 @@ const CartContent = ({ isLoading, detailedCart, updateCartItemMutation, deleteCa
 type CartContentLineProps = {
     item: DetailedCart['items'][number]
     isLoading: boolean
-    updateCartItemMutation: UseMutationResult<any, any, { productItemId: number; quantity: number }, any>
+    updateCartItemMutation: UseMutationResult<
+        any,
+        any,
+        { productItemId: number; newProductItemId?: number; quantity: number },
+        any
+    >
     deleteCartItemMutation: UseMutationResult<any, any, { productItemId: number }, any>
+    detailedCart: DetailedCart
 }
 
-const CartContentLine = ({ item, isLoading, updateCartItemMutation, deleteCartItemMutation }: CartContentLineProps) => {
+const CartContentLine = ({
+    item,
+    isLoading,
+    updateCartItemMutation,
+    deleteCartItemMutation,
+    detailedCart
+}: CartContentLineProps) => {
     const navigate = useNavigate()
     const productItem = item.product
     const discountRate = productItem.rootProduct.discountRate ?? 0
+    const availableStock =
+        productItem.rootProduct.productItems!.find(pi => pi.productItemId === item.productItemId)?.availableStock ?? 0
 
     return (
         <div key={item.productItemId} className="hover:bg-muted/80 flex items-start gap-6 p-3">
@@ -84,7 +100,7 @@ const CartContentLine = ({ item, isLoading, updateCartItemMutation, deleteCartIt
                     </p>
                     <p className="line-clamp-1" onClick={() => navigate(`/san-pham/${productItem.rootProduct.slug}`)}>
                         <span className="font-medium">Số lượng tồn kho: </span>
-                        {productItem.availableStock}
+                        {availableStock}
                     </p>
                     {discountRate > 0 && (
                         <div className="flex items-center gap-2 font-medium">
@@ -105,11 +121,11 @@ const CartContentLine = ({ item, isLoading, updateCartItemMutation, deleteCartIt
                 </div>
             </div>
 
-            <div className="flex flex-col items-center gap-3">
+            <div className="flex w-[120px] flex-col items-center gap-2">
                 <QuantityInput
                     isLoading={isLoading}
                     initValue={item.quantity}
-                    maximum={productItem.availableStock}
+                    maximum={availableStock}
                     onChange={value => {
                         if (value === item.quantity) return
                         if (value === 0) {
@@ -124,7 +140,20 @@ const CartContentLine = ({ item, isLoading, updateCartItemMutation, deleteCartIt
                         })
                     }}
                 />
-
+                <SizeSelect
+                    isLoading={isLoading}
+                    initValue={item.productItemId}
+                    cartItems={detailedCart.items}
+                    sizes={productItem.rootProduct.productItems! as IProductItem[]}
+                    onChange={value => {
+                        if (value === item.productItemId) return
+                        updateCartItemMutation.mutateAsync({
+                            productItemId: item.productItemId,
+                            newProductItemId: value,
+                            quantity: item.quantity
+                        })
+                    }}
+                />
                 <Button
                     size="icon"
                     variant="destructive"

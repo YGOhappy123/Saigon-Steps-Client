@@ -15,11 +15,11 @@ const initialState: AppState = {
 }
 
 const actionTypes = {
-    getCartItems: 'customers/getCartItems',
-    addCartItem: 'customers/addCartItem',
-    updateCartItem: 'customers/updateCartItem',
-    deleteCartItem: 'customers/deleteCartItem',
-    resetCart: 'customers/resetCart',
+    getCartItems: 'customer-cart/getCartItems',
+    addCartItem: 'customer-cart/addCartItem',
+    updateCartItem: 'customer-cart/updateCartItem',
+    deleteCartItem: 'customer-cart/deleteCartItem',
+    resetCart: 'customer-cart/resetCart',
     getAddresses: 'customer-addresses/getAddresses',
     addAddress: 'customer-addresses/addAddress',
     setAddressAsDefault: 'customer-addresses/setAddressAsDefault',
@@ -185,6 +185,16 @@ export const appSlice = createSlice({
             })
             .addMatcher(
                 action => action.type.startsWith('customer-addresses/'),
+                (_, action) => {
+                    const isSuccess = action.type.endsWith('/fulfilled')
+                    toast(
+                        getMappedMessage((action as PayloadAction<any>).payload?.message),
+                        toastConfig(isSuccess ? 'success' : 'error')
+                    )
+                }
+            )
+            .addMatcher(
+                action => action.type.startsWith('customer-cart/'),
                 (_, action) => {
                     const isSuccess = action.type.endsWith('/fulfilled')
                     toast(
