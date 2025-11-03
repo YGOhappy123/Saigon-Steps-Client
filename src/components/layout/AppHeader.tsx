@@ -18,7 +18,7 @@ const AppHeader = () => {
     const { user, isLogged } = useSelector((state: RootState) => state.auth)
 
     return (
-        <header className="bg-background z-[20] flex w-full justify-center">
+        <header className="bg-background z-[101] flex w-full justify-center">
             <div className="max-w-container flex w-full items-center justify-between gap-10 p-4 lg:gap-15 xl:gap-25">
                 <Link to="/">
                     <AppLogo className="px-0" />

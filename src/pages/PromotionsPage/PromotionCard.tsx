@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import { twMerge } from 'tailwind-merge'
-import { Barcode, ScanBarcode, TicketCheck } from 'lucide-react'
+import { CalendarArrowDown, CalendarArrowUp, LucideProps, ScanBarcode, TicketCheck } from 'lucide-react'
+import { IconType } from '@icons-pack/react-simple-icons'
 import striptags from 'striptags'
 import dayjs from '@/libs/dayjs'
 
@@ -37,34 +38,34 @@ const PromotionCard = ({ promotion, index }: PromotionCardProps) => {
                             </h3>
                             <p className="flex items-center gap-3 text-justify text-white/80">
                                 <span className="font-medium">Giảm giá: </span>
-                                <div
-                                    className={twMerge(
-                                        'flex items-center gap-2 rounded bg-white px-2.5 py-0.5 text-base',
-                                        isOdd ? 'text-pink-400' : 'text-orange-400'
-                                    )}
-                                >
-                                    <TicketCheck size={24} />{' '}
-                                    <span className="text-lg font-semibold">
-                                        {promotion.discountRate.toString().padStart(2, '0')}%
-                                    </span>
-                                </div>
+                                <HighlightedContent
+                                    content={`${promotion.discountRate.toString().padStart(2, '0')}%`}
+                                    isOdd={isOdd}
+                                    Icon={TicketCheck}
+                                />
                                 <span className="font-medium">Áp dụng cho:</span>
-                                <div
-                                    className={twMerge(
-                                        'flex items-center gap-2 rounded bg-white px-2.5 py-0.5 text-base',
-                                        isOdd ? 'text-pink-400' : 'text-orange-400'
-                                    )}
-                                >
-                                    <ScanBarcode size={24} />{' '}
-                                    <span className="text-lg font-semibold">
-                                        {promotion.products?.length.toString().padStart(2, '0')} sản phẩm
-                                    </span>
-                                </div>
+                                <HighlightedContent
+                                    content={`${(promotion.products as IRootProduct[]).length
+                                        .toString()
+                                        .padStart(2, '0')} sản phẩm`}
+                                    isOdd={isOdd}
+                                    Icon={ScanBarcode}
+                                />
                             </p>
-                            <p className="text-justify text-white/80">
+                            <p className="flex items-center gap-3 text-justify text-white/80">
                                 <span className="font-medium">Thời gian áp dụng: </span>
-                                {dayjs(promotion.startDate).format('DD/MM/YYYY')} {'-'}
-                                {dayjs(promotion.endDate).format('DD/MM/YYYY')}
+                                <span>Từ</span>
+                                <HighlightedContent
+                                    content={dayjs(promotion.startDate).format('DD/MM/YYYY')}
+                                    isOdd={isOdd}
+                                    Icon={CalendarArrowUp}
+                                />
+                                <span>đến</span>
+                                <HighlightedContent
+                                    content={dayjs(promotion.endDate).format('DD/MM/YYYY')}
+                                    isOdd={isOdd}
+                                    Icon={CalendarArrowDown}
+                                />
                             </p>
                             <p className="text-justify text-white/80">
                                 <span className="font-medium">Mô tả: </span>
@@ -140,6 +141,26 @@ const PromotionCard = ({ promotion, index }: PromotionCardProps) => {
                     className="absolute top-0 right-[70px] h-[430px]"
                 />
             )}
+        </div>
+    )
+}
+
+type HighlightedContentProps = {
+    content: string
+    isOdd: boolean
+    Icon?: IconType
+}
+
+const HighlightedContent = ({ content, isOdd, Icon }: HighlightedContentProps) => {
+    return (
+        <div
+            className={twMerge(
+                'flex items-center gap-2 rounded bg-white px-2.5 py-0.5 text-base',
+                isOdd ? 'text-pink-400' : 'text-orange-400'
+            )}
+        >
+            {Icon && <Icon size={24} />}
+            <span className="text-lg font-semibold">{content}</span>
         </div>
     )
 }
