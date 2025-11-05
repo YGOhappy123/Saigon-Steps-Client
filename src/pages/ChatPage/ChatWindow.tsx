@@ -90,7 +90,7 @@ const ChatWindow = ({ user, conversation, isLoading }: ChatWindowProps) => {
     }
 
     return (
-        <Card className="flex h-full flex-1 flex-col gap-0 py-0">
+        <Card className="flex h-full flex-1 flex-col gap-0 overflow-hidden py-0">
             <div className="border-b p-4 lg:p-6">
                 <div className="flex items-center gap-4 lg:gap-6">
                     <Avatar className="size-12 rounded-full lg:size-16">
@@ -104,7 +104,7 @@ const ChatWindow = ({ user, conversation, isLoading }: ChatWindowProps) => {
                 </div>
             </div>
 
-            <CardContent className="h-full overflow-y-auto p-4 lg:p-6">
+            <CardContent className="h-full overflow-x-hidden overflow-y-auto p-4 lg:p-6">
                 {messages.length > 0 ? (
                     <ChatMessagesDisplay user={user} messages={messages} messageEndRef={messageEndRef} />
                 ) : (
