@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import { twMerge } from 'tailwind-merge'
-import { CalendarArrowDown, CalendarArrowUp, LucideProps, ScanBarcode, TicketCheck } from 'lucide-react'
+import { CalendarArrowDown, CalendarArrowUp, ScanBarcode, TicketCheck } from 'lucide-react'
 import { IconType } from '@icons-pack/react-simple-icons'
 import striptags from 'striptags'
 import dayjs from '@/libs/dayjs'

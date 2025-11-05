@@ -139,6 +139,8 @@ const OrderProductLine = ({ item }: OrderProductLineProps) => {
     const navigate = useNavigate()
     const productItem = item.product
     const discountRate = productItem.rootProduct.discountRate ?? 0
+    const availableStock =
+        productItem.rootProduct.productItems!.find(pi => pi.productItemId === item.productItemId)?.availableStock ?? 0
 
     return (
         <div key={item.productItemId} className="hover:bg-muted/80 flex items-start gap-6 rounded-md p-3">
@@ -161,7 +163,7 @@ const OrderProductLine = ({ item }: OrderProductLineProps) => {
                     </p>
                     <p className="line-clamp-1" onClick={() => navigate(`/san-pham/${productItem.rootProduct.slug}`)}>
                         <span className="font-medium">Số lượng tồn kho: </span>
-                        {productItem.availableStock}
+                        {availableStock}
                     </p>
                     {discountRate > 0 && (
                         <div className="flex items-center gap-2 font-medium">
