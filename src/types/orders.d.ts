@@ -5,7 +5,7 @@ declare global {
         orderStatusId: number
         couponId: number
         totalAmount: number
-        status: OrderStatus
+        statusId: number
         recipientName?: string
         deliveryAddress?: string
         deliveryPhone?: string
@@ -14,6 +14,7 @@ declare global {
         deliveredAt?: string
         refundedAt?: string
 
+        status: IOrderStatus
         coupon?: ICoupon
         orderItems: {
             productItemId: number
@@ -36,22 +37,19 @@ declare global {
     interface IOrderStatusUpdateLog {
         logId: number
         orderId: number
-        status: OrderStatus
+        statusId: number
         updatedAt: string
         updatedBy: number
 
         updatedByStaff?: Partial<IStaff>
+        status: IOrderStatus
     }
 
-    type OrderStatus =
-        | 'PENDING'
-        | 'ACCEPTED'
-        | 'PACKED'
-        | 'DISPATCHED'
-        | 'DELIVERY_SUCCESS'
-        | 'DELIVERY_FAILED'
-        | 'CANCELLED'
-        | 'RETURNED'
+    interface IOrderStatus {
+        statusId: number
+        name: string
+        description: string
+    }
 }
 
 export {}

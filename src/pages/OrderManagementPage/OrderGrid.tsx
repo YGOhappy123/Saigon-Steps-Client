@@ -6,6 +6,7 @@ import Pagination from '@/components/common/Pagination'
 
 type OrderGridProps = {
     orders: IOrder[]
+    orderStatuses: IOrderStatus[]
     total: number
     page: number
     limit: number
@@ -18,6 +19,7 @@ type OrderGridProps = {
 
 const OrderGrid = ({
     orders,
+    orderStatuses,
     total,
     page,
     limit,
@@ -37,9 +39,10 @@ const OrderGrid = ({
                 buildQuery={buildQuery}
                 onFilterSearch={onFilterSearch}
                 onResetFilterSearch={onResetFilterSearch}
+                orderStatuses={orderStatuses}
             />
 
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
                 {orders.map(order => (
                     <OrderCard key={order.orderId} order={order} />
                 ))}

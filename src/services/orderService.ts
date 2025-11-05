@@ -9,7 +9,7 @@ import toastConfig from '@/configs/toast'
 import dayjs from '@/libs/dayjs'
 
 export type OrderSortAndFilterParams = {
-    searchStatus: OrderStatus | undefined
+    searchStatus: number
     searchMinPrice: string
     searchMaxPrice: string
     searchRange: string[] | any[] | undefined
@@ -36,7 +36,7 @@ const orderService = ({ enableFetching }: { enableFetching: boolean }) => {
         sort
     }: OrderSortAndFilterParams) => {
         const query: any = {}
-        if (searchStatus) query.status = searchStatus
+        if (searchStatus) query.statusId = searchStatus
         if (searchMinPrice) query.minTotalAmount = Number(searchMinPrice)
         if (searchMaxPrice) query.maxTotalAmount = Number(searchMaxPrice)
         if (searchRange) {

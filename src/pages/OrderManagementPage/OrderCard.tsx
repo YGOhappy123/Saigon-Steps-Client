@@ -4,7 +4,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Badge } from '@/components/ui/badge'
 import { RootState } from '@/store'
-import { ORDER_STATUS_MAP } from '@/configs/constants'
 import OrderCardItemTable from '@/pages/OrderManagementPage/OrderCardItemTable'
 import OrderCardUpdateLogTable from '@/pages/OrderManagementPage/OrderCardUpdateLogTable'
 import formatCurrency from '@/utils/formatCurrency'
@@ -26,7 +25,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
             </CardHeader>
             <CardContent>
                 <div className="bg-primary-foreground border-primary mx-auto mb-2 flex w-fit items-center justify-center gap-6 rounded-full border-4 px-6">
-                    <span className="text-primary py-2 text-xl font-semibold">{ORDER_STATUS_MAP[order.status]}</span>
+                    <span className="text-primary py-2 text-xl font-semibold">{order.status.name}</span>
                     <div className="border-primary h-12 border-l-4"></div>
                     <span className="text-primary py-2 text-xl font-semibold">{formatCurrency(order.totalAmount)}</span>
                 </div>

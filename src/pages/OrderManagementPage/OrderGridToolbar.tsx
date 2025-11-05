@@ -12,6 +12,7 @@ type OrderGridToolbarProps = {
     buildQuery: (params: OrderSortAndFilterParams) => void
     onFilterSearch: () => void
     onResetFilterSearch: () => void
+    orderStatuses: IOrderStatus[]
 }
 
 const OrderGridToolbar = ({
@@ -19,7 +20,8 @@ const OrderGridToolbar = ({
     setLimit,
     buildQuery,
     onFilterSearch,
-    onResetFilterSearch
+    onResetFilterSearch,
+    orderStatuses
 }: OrderGridToolbarProps) => {
     const [havingFilters, setHavingFilters] = useState(false)
 
@@ -43,6 +45,7 @@ const OrderGridToolbar = ({
                         onChange={buildQuery}
                         onSearch={onFilterSearch}
                         onReset={onResetFilterSearch}
+                        orderStatuses={orderStatuses}
                     />
                 </Popover>
             </div>
