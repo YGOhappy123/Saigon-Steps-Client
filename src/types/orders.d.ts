@@ -49,6 +49,7 @@ declare global {
         statusId: number
         name: string
         description: string
+        color: string
     }
 }
 
