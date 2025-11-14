@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
+import { parsedEnv } from '@/env'
 import axios from 'axios'
 import cookies from '@/libs/cookies'
 import useRefreshTokenFn from '@/hooks/useRefreshTokenFn'
 
 export const axiosIns = axios.create({
-    baseURL: import.meta.env.VITE_SERVER_URL,
+    baseURL: parsedEnv.VITE_SERVER_URL,
     headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'

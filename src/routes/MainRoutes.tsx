@@ -5,6 +5,7 @@ import HomePage from '@/pages/HomePage'
 import AboutUsPage from '@/pages/AboutUsPage'
 import OurServicesPage from '@/pages/OurServicesPage'
 import PromotionsPage from '@/pages/PromotionsPage'
+import AiSearchPage from '@/pages/AiSearchPage'
 import ErrorPage from '@/pages/ErrorPage'
 
 const MainRoutes = [
@@ -36,6 +37,10 @@ const MainRoutes = [
             {
                 path: 'khuyen-mai',
                 element: <PromotionsPage />
+            },
+            {
+                path: 'tim-kiem-ai',
+                element: <AiSearchPage />
             }
         ]
     }

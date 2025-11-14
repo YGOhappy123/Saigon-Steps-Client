@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, ChangeEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { twMerge } from 'tailwind-merge'
@@ -48,7 +48,7 @@ const HeaderSearchbar = () => {
         }, 500)
     }
 
-    const handleTyping = (e: any) => {
+    const handleTyping = (e: ChangeEvent<HTMLInputElement>) => {
         const searchInput = e.target.value
         if (searchInput.startsWith(' ')) return
 
@@ -93,7 +93,7 @@ const HeaderSearchbar = () => {
                 ref={searchInputRef}
                 onChange={handleTyping}
                 onFocus={() => setInputFocusing(true)}
-                className="border-none bg-transparent! font-medium shadow-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                className="border-none bg-transparent! font-semibold shadow-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
             />
             <Separator orientation="vertical" className="data-[orientation=vertical]:h-7" />
 

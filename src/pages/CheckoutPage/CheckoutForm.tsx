@@ -64,7 +64,7 @@ const CheckoutForm = ({ handlePlaceOrder }: CheckoutFormProps) => {
                                     <Textarea
                                         rows={4}
                                         placeholder="Ghi chú đơn hàng..."
-                                        className="caret-card-foreground text-card-foreground rounded border-2"
+                                        className="caret-card-foreground text-card-foreground rounded border-2 font-semibold"
                                         {...field}
                                     />
                                 </FormControl>

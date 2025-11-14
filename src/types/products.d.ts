@@ -103,6 +103,8 @@ declare global {
 
     type ShoeGender = 'MALE' | 'FEMALE' | 'UNISEX'
     type CouponType = 'PERCENTAGE' | 'FIXED'
+
+    type PredictedRootProduct = IRootProduct & { certainty: number }
 }
 
 export {}

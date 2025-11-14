@@ -8,9 +8,10 @@ import formatCurrency from '@/utils/formatCurrency'
 
 type ProductCardProps = {
     product: IRootProduct
+    certainty?: number
 }
 
-const ProductCard = ({ product }: ProductCardProps) => {
+const ProductCard = ({ product, certainty }: ProductCardProps) => {
     const navigate = useNavigate()
     const discountRate = product.discountRate ?? 0
     const price = product.price * (1 - discountRate / 100)
@@ -53,6 +54,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     Xem chi tiết
                 </Button>
             </CardFooter>
+
             {product.discountRate != null && product.discountRate > 0 && (
                 <div className="bg-primary absolute top-8 -left-2 flex h-6 items-center justify-center pr-2 pl-4">
                     <span className="text-primary-foreground text-center text-base font-semibold">
@@ -60,6 +62,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     </span>
                     <div className="border-primary absolute top-full left-0 border-4 border-b-transparent border-l-transparent"></div>
                     <div className="border-primary absolute top-0 left-full h-full border-12 border-t-transparent border-r-transparent border-b-transparent"></div>
+                </div>
+            )}
+
+            {certainty != null && (
+                <div className="absolute top-0 right-0 overflow-hidden rounded-tr-xl pl-4">
+                    <span className="text-primary-foreground bg-pink block w-20 translate-x-[6px] -skew-x-20 rounded-xs py-1 text-center text-base font-semibold">
+                        {(certainty * 100).toFixed(2)}%
+                    </span>
                 </div>
             )}
         </Card>
