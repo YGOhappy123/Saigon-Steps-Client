@@ -107,8 +107,8 @@ const AddAddressDialog = ({ triggerButtonClassname, addNewAddressMutation }: Add
                 <DialogHeader>
                     <DialogTitle>Thêm địa chỉ nhận hàng</DialogTitle>
                     <DialogDescription>
-                        Thêm các thông tin bao gồm họ & tên người nhận, số điện thoại và địa chỉ chi tiết. Ấn "Xác nhận"
-                        sau khi hoàn tất.
+                        Thêm các thông tin bao gồm họ và tên người nhận, số điện thoại và địa chỉ chi tiết. Ấn "Xác
+                        nhận" sau khi hoàn tất.
                     </DialogDescription>
                 </DialogHeader>
                 <Separator />
@@ -120,10 +120,10 @@ const AddAddressDialog = ({ triggerButtonClassname, addNewAddressMutation }: Add
                                 name="recipientName"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="text-card-foreground">Họ & tên người nhận</FormLabel>
+                                        <FormLabel className="text-card-foreground">Họ và tên người nhận</FormLabel>
                                         <FormControl>
                                             <Input
-                                                placeholder="Họ & tên người nhận..."
+                                                placeholder="Họ và tên người nhận..."
                                                 className="text-card-foreground caret-card-foreground h-12 rounded border-2 font-semibold"
                                                 {...field}
                                             />

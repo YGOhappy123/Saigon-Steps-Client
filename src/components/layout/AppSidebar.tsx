@@ -52,7 +52,7 @@ const AppSidebar = () => {
 
                         <ConfirmationDialog
                             title="Bạn có chắc muốn khóa tài khoản của mình không?"
-                            description="Không thể hoàn tác hành động này. Thao tác này sẽ xóa vĩnh viễn tài khoản khỏi hệ thống NHT Marine."
+                            description="Không thể hoàn tác hành động này. Thao tác này sẽ xóa vĩnh viễn tài khoản khỏi hệ thống Saigon Steps."
                             onConfirm={async () => {
                                 await deactivateAccountMutation.mutateAsync()
                             }}

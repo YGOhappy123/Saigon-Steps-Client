@@ -42,7 +42,7 @@ const SwitchAddressDialog = ({
                             <div className="flex items-start justify-between gap-6 lg:gap-10">
                                 <div className="flex flex-1 flex-col gap-4 break-words whitespace-normal">
                                     <p>
-                                        <span className="font-semibold">Họ & tên người nhận: </span>
+                                        <span className="font-semibold">Họ và tên người nhận: </span>
                                         <span className="text-muted-foreground">{address.recipientName}</span>
                                         {address.isDefault && (
                                             <span className="text-muted-foreground"> (Mặc định)</span>

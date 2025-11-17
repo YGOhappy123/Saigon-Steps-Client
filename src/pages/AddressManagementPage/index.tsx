@@ -92,7 +92,7 @@ const CustomerAddressLine = ({
             <div className="flex items-start justify-between gap-6 lg:gap-10">
                 <div className="flex flex-1 flex-col gap-3 break-words whitespace-normal">
                     <p>
-                        <span className="font-semibold">Họ & tên người nhận: </span>
+                        <span className="font-semibold">Họ và tên người nhận: </span>
                         <span className="text-muted-foreground">{address.recipientName}</span>
                     </p>
                     <p>
@@ -128,8 +128,8 @@ const CustomerAddressLine = ({
                         )}
                     </Button>
                     <ConfirmationDialog
-                        title="Bạn có chắc muốn xóa hướng chuyển trạng thái này?"
-                        description="Không thể hoàn tác hành động này. Thao tác này sẽ xóa vĩnh viễn hướng chuyển trạng thái khỏi hệ thống NHT Marine."
+                        title="Bạn có chắc muốn xóa địa chỉ nhận hàng này?"
+                        description="Không thể hoàn tác hành động này. Thao tác này sẽ xóa vĩnh viễn địa chỉ nhận hàng khỏi hệ thống Saigon Steps."
                         onConfirm={async () => {
                             if (address.isDefault) return
                             await deleteAddressMutation.mutateAsync({

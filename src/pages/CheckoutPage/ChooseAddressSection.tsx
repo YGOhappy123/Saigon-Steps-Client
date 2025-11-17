@@ -62,7 +62,7 @@ const ChooseAddressSection = ({ setCheckoutDisabled, setData }: ChooseAddressSec
                     </span>
                     <div className="flex flex-col gap-1.5 rounded border-2 px-3 py-2 text-sm">
                         <p>
-                            <span className="font-semibold">Họ & tên người nhận: </span>
+                            <span className="font-semibold">Họ và tên người nhận: </span>
                             <span className="text-muted-foreground">{selectedAddr?.recipientName}</span>
                         </p>
                         <p>
