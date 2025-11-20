@@ -50,13 +50,18 @@ const HeroBanner = () => {
                     <div className="relative flex h-full w-full items-center justify-center">
                         <img
                             src="/images/osp-banner-shoes.png"
-                            alt="banner image - orange shoes"
-                            className="z-10 max-w-[55%]"
+                            alt="banner image - white male shoes"
+                            className="z-10 max-w-[72%]"
                         />
                         <img
-                            src="/images/osp-banner-paint.png"
-                            alt="banner image - paint"
-                            className="absolute top-1/2 left-1/2 w-full max-w-[80%] -translate-x-[50%] -translate-y-[50%] -rotate-45"
+                            src="/images/osp-banner-rings.png"
+                            alt="banner image - rings"
+                            className="absolute top-1/2 left-1/2 max-w-[72%] -translate-x-[50%] -translate-y-[50%]"
+                        />
+                        <img
+                            src="/images/osp-banner-curves.png"
+                            alt="banner image - curves"
+                            className="absolute top-1/2 left-1/2 z-20 max-w-[40%] -translate-x-[42%] -translate-y-[40%]"
                         />
                     </div>
                     <div className="relative flex translate-y-5 flex-col items-center">

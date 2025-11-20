@@ -59,7 +59,7 @@ const HeroBanner = () => {
                             className="absolute top-1/2 left-1/2 max-w-[80%] -translate-x-[50%] -translate-y-[50%]"
                         />
                     </div>
-                    <div className="relative flex translate-y-5 flex-col items-center">
+                    <div className="flex translate-y-5 flex-col items-center">
                         <span className="font-strasua text-4xl font-medium text-[#000000]">Saigon Steps</span>
                         <span className="-mt-1 font-medium text-[#000000]/65">Where Style Begins!</span>
                     </div>
