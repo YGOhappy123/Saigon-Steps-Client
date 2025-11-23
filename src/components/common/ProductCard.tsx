@@ -33,7 +33,7 @@ const ProductCard = ({ product, certainty }: ProductCardProps) => {
                         />
                     </div>
                     <div>
-                        <h3 className="text-lg font-medium">{product.name}</h3>
+                        <h3 className="line-clamp-2 text-lg font-medium">{product.name}</h3>
                         <p className="text-muted-foreground line-clamp-3">{striptags(product.description)}</p>
                         <div className="text-muted-foreground mt-2 flex items-center gap-2">
                             Giá chỉ từ:
