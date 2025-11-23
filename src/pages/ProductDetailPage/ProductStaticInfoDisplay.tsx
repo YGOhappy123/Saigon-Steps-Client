@@ -11,6 +11,7 @@ const ProductStaticInfoDisplay = ({ product }: ProductStaticInfoDisplayProps) =>
     const navigate = useNavigate()
     const discountRate = product?.promotions?.[0]?.discountRate ?? 0
     const brand = product!.brand as IProductBrand
+    const category = product.shoeFeature?.category as IShoeCategory | null
 
     return (
         <div className="flex flex-col gap-4">
@@ -31,8 +32,20 @@ const ProductStaticInfoDisplay = ({ product }: ProductStaticInfoDisplayProps) =>
                 </div>
             </div>
 
+            {category && (
+                <div className="-mb-1.5 flex items-center gap-2 font-medium">
+                    Danh mục:
+                    <div
+                        className="hover:text-primary flex cursor-pointer items-center gap-2"
+                        onClick={() => navigate(`/san-pham?danh-muc=${category.name.toLowerCase()}`)}
+                    >
+                        <span className="font-semibold">{category.name}</span>
+                    </div>
+                </div>
+            )}
+
             <div>
-                <p className="mb-1 font-medium">Mô tả sản phẩm</p>
+                <p className="mb-1 font-medium">Mô tả sản phẩm:</p>
                 <div dangerouslySetInnerHTML={{ __html: product.description }}></div>
             </div>
 
