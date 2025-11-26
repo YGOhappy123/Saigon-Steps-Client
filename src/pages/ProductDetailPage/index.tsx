@@ -14,6 +14,7 @@ import cartService from '@/services/cartService'
 import ProductImagesDisplay from '@/pages/ProductDetailPage/ProductImagesDisplay'
 import ProductStaticInfoDisplay from '@/pages/ProductDetailPage/ProductStaticInfoDisplay'
 import ProductFeaturesDisplay from '@/pages/ProductDetailPage/ProductFeaturesDisplay'
+import SimilarProductsDisplay from '@/pages/ProductDetailPage/SimilarProductsDisplay'
 import ProductNotFound from '@/pages/ProductDetailPage/ProductNotFound'
 
 const ProductDetailPage = () => {
@@ -147,6 +148,8 @@ const ProductDetailPage = () => {
                         </div>
                     )}
                 </div>
+
+                <SimilarProductsDisplay slug={slug as string} containerClassName="mt-16" />
             </div>
         </section>
     )
