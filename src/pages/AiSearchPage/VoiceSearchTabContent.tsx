@@ -113,31 +113,35 @@ const InputForm = ({ isLoading, handleSubmit, handleCancelSearch, handleClear }:
         transcript,
         listening: isListening,
         resetTranscript,
-        browserSupportsSpeechRecognition
+        browserSupportsSpeechRecognition,
+        isMicrophoneAvailable
     } = useSpeechRecognition()
 
     const startListening = () => {
         resetTranscript()
         handleClear()
-        SpeechRecognition.startListening({ continuous: true, language: 'vi-VN' })
+        SpeechRecognition.startListening({ continuous: true }).catch(error => {
+            onError(error)
+        })
     }
     const debouncedTranscript = useDebounce(transcript, 2000)
 
     useEffect(() => {
-        SpeechRecognition.stopListening()
         if (debouncedTranscript) {
-            handleSubmit(debouncedTranscript as string)
+            SpeechRecognition.abortListening().then(() => {
+                handleSubmit(debouncedTranscript as string)
+            })
         }
     }, [debouncedTranscript])
 
-    if (!browserSupportsSpeechRecognition) {
+    if (!browserSupportsSpeechRecognition || !isMicrophoneAvailable) {
         return (
             <div className="col-span-2 flex flex-1 flex-col items-center justify-center gap-2">
                 <RadixAvatar className="w-[50%] xl:w-[40%]">
                     <RadixAvatarImage src="/images/disc-emoji.png" alt="empty cart"></RadixAvatarImage>
                 </RadixAvatar>
                 <p className="mt-2 font-semibold">Không được hỗ trợ</p>
-                <p className="font-semibold">Trình duyệt của bạn không hỗ trợ nhận diện giọng nói!</p>
+                <p className="font-semibold">Trình duyệt hoặc thiết bị của bạn không hỗ trợ nhận diện giọng nói!</p>
             </div>
         )
     }
@@ -155,6 +159,7 @@ const InputForm = ({ isLoading, handleSubmit, handleCancelSearch, handleClear }:
                     )}
                 </div>
                 <Textarea
+                    name="voice-search"
                     rows={4}
                     spellCheck="false"
                     placeholder="Mô tả sản phẩm..."

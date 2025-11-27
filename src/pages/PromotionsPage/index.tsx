@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import useTitle from '@/hooks/useTitle'
 import useAxiosIns from '@/hooks/useAxiosIns'
 import CategoryBrandSelect from '@/components/common/CategoryBrandSelect'
-import PromotionFilterForm from '@/pages/PromotionsPage/PromotionFilterForm'
+import PromotionFilter from '@/pages/PromotionsPage/PromotionFilter'
 import PromotionsList from '@/pages/PromotionsPage/PromotionsList'
 import dayjs from '@/libs/dayjs'
 
@@ -90,7 +90,7 @@ const PromotionsPage = () => {
 
                 <div className="mt-11 flex w-full flex-col items-start gap-11 xl:flex-row xl:gap-16">
                     <div className="w-full xl:max-w-[300px]">
-                        <PromotionFilterForm
+                        <PromotionFilter
                             searchName={searchName}
                             setSearchName={setSearchName}
                             setSearchMinRate={setSearchMinRate}

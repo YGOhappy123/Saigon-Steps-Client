@@ -8,6 +8,7 @@ type DetailedProductItem = {
     productItemId: number
     rootProductId: number
     size: string
+    availableStock: number
     rootProduct: Pick<
         IRootProduct,
         | 'rootProductId'
@@ -53,7 +54,15 @@ const useCustomerCart = () => {
 
         const detailedCartItems = cart.items.map(item => {
             const productItemData = detailedProductItems.find(_item => _item.productItemId === item.productItemId)
-            return { ...item, product: productItemData! }
+            const availableStock = productItemData!.rootProduct.productItems?.find(
+                _pi => _pi.productItemId === item.productItemId
+            )!.availableStock
+
+            return {
+                ...item,
+                availableStock: availableStock ?? 0,
+                product: productItemData!
+            }
         })
         return { ...cart, items: detailedCartItems } as DetailedCart
     }, [cart, detailedProductItems])

@@ -14,8 +14,7 @@ const SimilarProductsDisplay = ({ slug, containerClassName }: SimilarProductsDis
         queryKey: ['similar-products', slug],
         queryFn: () => axios.get<IResponseData<PredictedRootProduct[]>>(`/ai/similar-products/${slug}`),
         enabled: true,
-        refetchIntervalInBackground: true,
-        refetchInterval: 20000,
+        refetchOnWindowFocus: false,
         select: res => res.data
     })
     const products = getSimilarProductsQuery.data?.data ?? []

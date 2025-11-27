@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import useTitle from '@/hooks/useTitle'
 import useAxiosIns from '@/hooks/useAxiosIns'
-import ProductFilterForm from '@/pages/ProductsDisplayPage/ProductFilterForm'
+import ProductFilter from '@/pages/ProductsDisplayPage/ProductFilter'
 import ProductGrid from '@/pages/ProductsDisplayPage/ProductGrid'
 import CategoryBrandSelect from '@/components/common/CategoryBrandSelect'
 
@@ -114,7 +114,7 @@ const ProductsDisplayPage = () => {
 
                 <div className="mt-11 flex w-full flex-col items-start gap-11 xl:flex-row xl:gap-16">
                     <div className="w-full xl:max-w-[300px]">
-                        <ProductFilterForm
+                        <ProductFilter
                             searchName={searchName}
                             searchInStock={searchInStock}
                             searchIsAccessory={searchIsAccessory}

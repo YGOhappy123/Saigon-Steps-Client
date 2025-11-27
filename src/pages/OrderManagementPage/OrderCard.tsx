@@ -1,11 +1,14 @@
-import { TicketCheck } from 'lucide-react'
 import { useSelector } from 'react-redux'
+import { PDFDownloadLink } from '@react-pdf/renderer'
+import { Printer, TicketCheck } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Badge } from '@/components/ui/badge'
 import { RootState } from '@/store'
+import { Button } from '@/components/ui/button'
 import OrderCardItemTable from '@/pages/OrderManagementPage/OrderCardItemTable'
 import OrderCardUpdateLogTable from '@/pages/OrderManagementPage/OrderCardUpdateLogTable'
+import InvoicePDF from '@/pages/OrderManagementPage/InvoicePDF'
 import formatCurrency from '@/utils/formatCurrency'
 import dayjs from '@/libs/dayjs'
 
@@ -19,9 +22,20 @@ const OrderCard = ({ order }: OrderCardProps) => {
 
     return (
         <Card>
-            <CardHeader className="text-center">
+            <CardHeader className="relative text-center">
                 <CardTitle className="text-xl">Thông tin đơn hàng mã: {order.orderId}</CardTitle>
                 <CardDescription>Đặt lúc {dayjs(order.createdAt).format('HH:mm:ss ngày DD/MM/YYYY')}</CardDescription>
+                <PDFDownloadLink
+                    key={order.orderId}
+                    className="absolute right-6"
+                    document={<InvoicePDF order={order} user={user} />}
+                    fileName={`SS_hoa_don ${order.orderId}.pdf`}
+                >
+                    <Button>
+                        <Printer />
+                        <span className="hidden xl:inline">In hóa đơn</span>
+                    </Button>
+                </PDFDownloadLink>
             </CardHeader>
             <CardContent>
                 <div

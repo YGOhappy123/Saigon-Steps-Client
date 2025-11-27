@@ -194,7 +194,7 @@ const InputForm = ({
 
                     <input
                         type="file"
-                        name="image"
+                        name="image-search"
                         id="imageInput"
                         accept="image/*"
                         className="hidden"

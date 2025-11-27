@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import formatCurrency from '@/utils/formatCurrency'
 
-type ProductFilterFormProps = {
+type ProductFilterProps = {
     searchName: string
     searchInStock: boolean | undefined
     searchIsAccessory: boolean | undefined
@@ -22,7 +22,7 @@ type ProductFilterFormProps = {
     resetFilters: () => void
 }
 
-const ProductFilterForm = ({
+const ProductFilter = ({
     searchName,
     searchInStock,
     searchIsAccessory,
@@ -32,7 +32,7 @@ const ProductFilterForm = ({
     setSearchMaxPrice,
     setSearchIsAccessory,
     resetFilters
-}: ProductFilterFormProps) => {
+}: ProductFilterProps) => {
     const navigate = useNavigate()
 
     const priceOptions: { id: string; min: number | null; max: number | null }[] = [
@@ -191,4 +191,4 @@ const ProductFilterForm = ({
     )
 }
 
-export default ProductFilterForm
+export default ProductFilter

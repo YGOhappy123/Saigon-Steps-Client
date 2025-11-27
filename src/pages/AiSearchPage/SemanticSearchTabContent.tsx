@@ -134,6 +134,7 @@ const InputForm = ({
                 Hãy mô tả nhu cầu của bạn, chúng mình sẽ giúp bạn tìm kiếm sản phẩm phù hợp nhất!
             </h3>
             <Textarea
+                name="semantic-search"
                 rows={4}
                 spellCheck="false"
                 placeholder="Nhập mô tả sản phẩm..."
