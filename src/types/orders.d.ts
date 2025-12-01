@@ -50,6 +50,7 @@ declare global {
         name: string
         description: string
         color: string
+        isDefault: boolean
     }
 }
 

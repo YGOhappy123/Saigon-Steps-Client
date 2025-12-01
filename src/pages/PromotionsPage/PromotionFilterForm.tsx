@@ -7,7 +7,6 @@ import { Separator } from '@/components/ui/separator'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import formatCurrency from '@/utils/formatCurrency'
 
 type PromotionFilterFormProps = {
     searchName: string
