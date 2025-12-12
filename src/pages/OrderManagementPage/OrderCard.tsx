@@ -28,7 +28,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
                 <PDFDownloadLink
                     className="absolute right-6"
                     document={<InvoicePDF order={order} user={user} />}
-                    fileName={`SS_hoa_don_${order.orderId}.pdf`}
+                    fileName={`SS_hoa_don ${order.orderId}.pdf`}
                 >
                     <Button>In hóa đơn</Button>
                 </PDFDownloadLink>
