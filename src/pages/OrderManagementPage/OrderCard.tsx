@@ -8,6 +8,9 @@ import OrderCardItemTable from '@/pages/OrderManagementPage/OrderCardItemTable'
 import OrderCardUpdateLogTable from '@/pages/OrderManagementPage/OrderCardUpdateLogTable'
 import formatCurrency from '@/utils/formatCurrency'
 import dayjs from '@/libs/dayjs'
+import { Button } from '@/components/ui/button'
+import { PDFDownloadLink } from '@react-pdf/renderer'
+import InvoicePDF from '@/pages/OrderManagementPage/InvoicePDF'
 
 type OrderCardProps = {
     order: IOrder
@@ -19,9 +22,16 @@ const OrderCard = ({ order }: OrderCardProps) => {
 
     return (
         <Card>
-            <CardHeader className="text-center">
+            <CardHeader className="relative text-center">
                 <CardTitle className="text-xl">Thông tin đơn hàng mã: {order.orderId}</CardTitle>
                 <CardDescription>Đặt lúc {dayjs(order.createdAt).format('HH:mm:ss ngày DD/MM/YYYY')}</CardDescription>
+                <PDFDownloadLink
+                    className="absolute right-6"
+                    document={<InvoicePDF order={order} user={user} />}
+                    fileName={`SS_hoa_don_${order.orderId}.pdf`}
+                >
+                    <Button>In hóa đơn</Button>
+                </PDFDownloadLink>
             </CardHeader>
             <CardContent>
                 <div
