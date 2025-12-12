@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { PDFDownloadLink } from '@react-pdf/renderer'
-import { TicketCheck } from 'lucide-react'
+import { Printer, TicketCheck } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Badge } from '@/components/ui/badge'
@@ -30,7 +30,10 @@ const OrderCard = ({ order }: OrderCardProps) => {
                     document={<InvoicePDF order={order} user={user} />}
                     fileName={`SS_hoa_don ${order.orderId}.pdf`}
                 >
-                    <Button>In hóa đơn</Button>
+                    <Button>
+                        <Printer />
+                        <span className="hidden xl:inline">In hóa đơn</span>
+                    </Button>
                 </PDFDownloadLink>
             </CardHeader>
             <CardContent>
