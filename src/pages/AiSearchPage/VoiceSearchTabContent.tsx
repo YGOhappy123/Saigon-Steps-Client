@@ -124,9 +124,9 @@ const InputForm = ({ isLoading, handleSubmit, handleCancelSearch, handleClear }:
     const debouncedTranscript = useDebounce(transcript, 2000)
 
     useEffect(() => {
-        SpeechRecognition.stopListening()
         if (debouncedTranscript) {
             handleSubmit(debouncedTranscript as string)
+            SpeechRecognition.stopListening()
         }
     }, [debouncedTranscript])
 
