@@ -8,7 +8,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
-type PromotionFilterFormProps = {
+type PromotionFilterProps = {
     searchName: string
     setSearchName: (name: string) => void
     setSearchMinRate: (minRate: number) => void
@@ -16,13 +16,13 @@ type PromotionFilterFormProps = {
     resetFilters: () => void
 }
 
-const PromotionFilterForm = ({
+const PromotionFilter = ({
     searchName,
     setSearchName,
     setSearchMinRate,
     setSearchMaxRate,
     resetFilters
-}: PromotionFilterFormProps) => {
+}: PromotionFilterProps) => {
     const navigate = useNavigate()
 
     const rateOptions: { id: string; min: number | null; max: number | null }[] = [
@@ -114,4 +114,4 @@ const PromotionFilterForm = ({
     )
 }
 
-export default PromotionFilterForm
+export default PromotionFilter
