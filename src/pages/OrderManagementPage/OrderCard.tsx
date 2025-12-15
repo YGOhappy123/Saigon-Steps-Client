@@ -26,6 +26,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
                 <CardTitle className="text-xl">Thông tin đơn hàng mã: {order.orderId}</CardTitle>
                 <CardDescription>Đặt lúc {dayjs(order.createdAt).format('HH:mm:ss ngày DD/MM/YYYY')}</CardDescription>
                 <PDFDownloadLink
+                    key={order.orderId}
                     className="absolute right-6"
                     document={<InvoicePDF order={order} user={user} />}
                     fileName={`SS_hoa_don ${order.orderId}.pdf`}
