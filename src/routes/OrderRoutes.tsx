@@ -2,7 +2,6 @@ import { Suspense } from 'react'
 import AuthProtector from '@/components/container/AuthProtector'
 import FragmentLayout from '@/layouts/FragmentLayout'
 import ThankYouPage from '@/pages/ThankYouPage'
-import CheckoutPage from '@/pages/CheckoutPage'
 import ErrorPage from '@/pages/ErrorPage'
 
 const OrderRoutes = [
@@ -15,10 +14,6 @@ const OrderRoutes = [
         ),
         errorElement: <ErrorPage />,
         children: [
-            {
-                path: 'thanh-toan',
-                element: <AuthProtector children={<CheckoutPage />} redirect="/xac-thuc" />
-            },
             {
                 path: 'tri-an/:orderId?',
                 element: <AuthProtector children={<ThankYouPage />} redirect="/xac-thuc" />
