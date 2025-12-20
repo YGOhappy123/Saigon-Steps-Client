@@ -5,7 +5,6 @@ import ProfileLayout from '@/layouts/ProfileLayout'
 import EditProfilePage from '@/pages/EditProfilePage'
 import ChatPage from '@/pages/ChatPage'
 import ChangePasswordPage from '@/pages/ChangePasswordPage'
-import OrderManagementPage from '@/pages/OrderManagementPage'
 import AddressManagementPage from '@/pages/AddressManagementPage'
 import ErrorPage from '@/pages/ErrorPage'
 
@@ -34,10 +33,6 @@ const ProfileRoutes = [
             {
                 path: 'tro-chuyen',
                 element: <ChatPage />
-            },
-            {
-                path: 'don-hang',
-                element: <OrderManagementPage />
             },
             {
                 path: 'dia-chi',
