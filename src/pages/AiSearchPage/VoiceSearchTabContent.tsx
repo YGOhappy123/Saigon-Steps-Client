@@ -128,9 +128,14 @@ const InputForm = ({ isLoading, handleSubmit, handleCancelSearch, handleClear }:
 
     useEffect(() => {
         if (debouncedTranscript) {
+<<<<<<< HEAD
+            handleSubmit(debouncedTranscript as string)
+            SpeechRecognition.stopListening()
+=======
             SpeechRecognition.abortListening().then(() => {
                 handleSubmit(debouncedTranscript as string)
             })
+>>>>>>> a313dae820771f6c9bab6df425ca43ddeced0cea
         }
     }, [debouncedTranscript])
 
