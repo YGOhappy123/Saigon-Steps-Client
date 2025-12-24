@@ -38,6 +38,7 @@ declare global {
         logId: number
         orderId: number
         statusId: number
+        explanation?: string
         updatedAt: string
         updatedBy: number
 
@@ -51,6 +52,7 @@ declare global {
         description: string
         color: string
         isDefault: boolean
+        explanationLabel?: string
     }
 }
 

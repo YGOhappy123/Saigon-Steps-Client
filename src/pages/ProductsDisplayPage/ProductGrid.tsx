@@ -36,7 +36,7 @@ const ProductGrid = ({ containerClassName, products, resetFilters }: ProductGrid
 
                     <div className="grid w-full grid-cols-2 gap-6 lg:grid-cols-3">
                         {paginatedProducts.map(product => (
-                            <ProductCard key={product.rootProductId} product={product} />
+                            <ProductCard key={product.rootProductId} product={product} openInNewTab />
                         ))}
                     </div>
 

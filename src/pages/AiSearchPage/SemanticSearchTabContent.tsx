@@ -84,7 +84,12 @@ const SemanticSearchTabContent = ({ isLoading, setIsLoading }: SemanticSearchTab
                     </h3>
                     <div className="grid w-full grid-cols-2 gap-6 lg:grid-cols-3 xl:grid-cols-4">
                         {result.map(product => (
-                            <ProductCard key={product.rootProductId} product={product} certainty={product.certainty} />
+                            <ProductCard
+                                key={product.rootProductId}
+                                product={product}
+                                certainty={product.certainty}
+                                openInNewTab
+                            />
                         ))}
                     </div>
                 </div>

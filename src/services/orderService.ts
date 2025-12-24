@@ -12,6 +12,7 @@ export type OrderSortAndFilterParams = {
     searchStatus: number
     searchMinPrice: string
     searchMaxPrice: string
+    searchIsDelivery: boolean | undefined
     searchRange: string[] | any[] | undefined
     sort: string
 }
@@ -32,6 +33,7 @@ const orderService = ({ enableFetching }: { enableFetching: boolean }) => {
         searchStatus,
         searchMinPrice,
         searchMaxPrice,
+        searchIsDelivery,
         searchRange,
         sort
     }: OrderSortAndFilterParams) => {
@@ -39,6 +41,7 @@ const orderService = ({ enableFetching }: { enableFetching: boolean }) => {
         if (searchStatus) query.statusId = searchStatus
         if (searchMinPrice) query.minTotalAmount = Number(searchMinPrice)
         if (searchMaxPrice) query.maxTotalAmount = Number(searchMaxPrice)
+        if (searchIsDelivery != null) query.isDelivery = searchIsDelivery
         if (searchRange) {
             if (searchRange[0]) query.startTime = dayjs(searchRange[0]).format('YYYY-MM-DD')
             if (searchRange[1]) query.endTime = dayjs(searchRange[1]).format('YYYY-MM-DD')

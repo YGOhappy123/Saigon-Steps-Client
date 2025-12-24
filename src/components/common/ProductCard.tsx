@@ -9,15 +9,16 @@ import formatCurrency from '@/utils/formatCurrency'
 type ProductCardProps = {
     product: IRootProduct
     certainty?: number
+    openInNewTab?: boolean
 }
 
-const ProductCard = ({ product, certainty }: ProductCardProps) => {
+const ProductCard = ({ product, certainty, openInNewTab = false }: ProductCardProps) => {
     const navigate = useNavigate()
     const discountRate = product.discountRate ?? 0
     const price = product.price * (1 - discountRate / 100)
 
-    return (
-        <Card className="relative p-4">
+    const content = (
+        <Card className="relative h-full p-4">
             <CardContent className="p-0">
                 <div className="flex flex-col gap-4">
                     <div
@@ -45,12 +46,7 @@ const ProductCard = ({ product, certainty }: ProductCardProps) => {
                 </div>
             </CardContent>
             <CardFooter className="mt-auto p-0">
-                <Button
-                    size="lg"
-                    variant="secondary"
-                    className="w-full"
-                    onClick={() => navigate(`/san-pham/${product.slug}`)}
-                >
+                <Button size="lg" variant="secondary" className="w-full">
                     Xem chi tiết
                 </Button>
             </CardFooter>
@@ -74,6 +70,20 @@ const ProductCard = ({ product, certainty }: ProductCardProps) => {
             )}
         </Card>
     )
+
+    if (openInNewTab) {
+        return (
+            <a href={`/san-pham/${product.slug}`} target="_blank" rel="noopener noreferrer">
+                {content}
+            </a>
+        )
+    } else {
+        return (
+            <div className="cursor-pointer" onClick={() => navigate(`/san-pham/${product.slug}`)}>
+                {content}
+            </div>
+        )
+    }
 }
 
 export default ProductCard

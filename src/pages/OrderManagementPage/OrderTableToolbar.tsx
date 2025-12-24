@@ -6,7 +6,7 @@ import { OrderSortAndFilterParams } from '@/services/orderService'
 import PageLimitSelect from '@/components/common/PageLimitSelect'
 import OrderFilter from '@/pages/OrderManagementPage/OrderFilter'
 
-type OrderGridToolbarProps = {
+type OrderTableToolbarProps = {
     limit: number
     setLimit: (limit: number) => void
     buildQuery: (params: OrderSortAndFilterParams) => void
@@ -15,14 +15,14 @@ type OrderGridToolbarProps = {
     orderStatuses: IOrderStatus[]
 }
 
-const OrderGridToolbar = ({
+const OrderTableToolbar = ({
     limit,
     setLimit,
     buildQuery,
     onFilterSearch,
     onResetFilterSearch,
     orderStatuses
-}: OrderGridToolbarProps) => {
+}: OrderTableToolbarProps) => {
     const [havingFilters, setHavingFilters] = useState(false)
 
     return (
@@ -53,4 +53,4 @@ const OrderGridToolbar = ({
     )
 }
 
-export default OrderGridToolbar
+export default OrderTableToolbar

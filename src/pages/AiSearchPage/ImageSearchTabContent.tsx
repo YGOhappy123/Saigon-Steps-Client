@@ -131,6 +131,7 @@ const ImageSearchTabContent = ({ isLoading, setIsLoading }: ImageSearchTabConten
                                             key={product.rootProductId}
                                             product={product}
                                             certainty={product.certainty}
+                                            openInNewTab
                                         />
                                     ))}
                                 </div>

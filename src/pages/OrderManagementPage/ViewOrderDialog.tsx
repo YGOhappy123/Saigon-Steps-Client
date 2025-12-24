@@ -1,45 +1,46 @@
-import { useSelector } from 'react-redux'
-import { PDFDownloadLink } from '@react-pdf/renderer'
-import { Printer, TicketCheck } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { TicketCheck } from 'lucide-react'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-import { Badge } from '@/components/ui/badge'
-import { RootState } from '@/store'
+import {
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle
+} from '@/components/ui/dialog'
+import { Separator } from '@/components/ui/separator'
 import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
 import OrderCardItemTable from '@/pages/OrderManagementPage/OrderCardItemTable'
 import OrderCardUpdateLogTable from '@/pages/OrderManagementPage/OrderCardUpdateLogTable'
-import InvoicePDF from '@/pages/OrderManagementPage/InvoicePDF'
 import formatCurrency from '@/utils/formatCurrency'
 import dayjs from '@/libs/dayjs'
 
-type OrderCardProps = {
-    order: IOrder
+type ViewOrderDialogProps = {
+    order: IOrder | null
+    open: boolean
+    setOpen: (value: boolean) => void
 }
 
-const OrderCard = ({ order }: OrderCardProps) => {
-    const user = useSelector((state: RootState) => state.auth.user)
-    const isDelivery = order.deliveryAddress != null
+const ViewOrderDialog = ({ order, open, setOpen }: ViewOrderDialogProps) => {
+    const isDelivery = order?.deliveryAddress != null
+
+    if (!order) return null
 
     return (
-        <Card>
-            <CardHeader className="relative text-center">
-                <CardTitle className="text-xl">Thông tin đơn hàng mã: {order.orderId}</CardTitle>
-                <CardDescription>Đặt lúc {dayjs(order.createdAt).format('HH:mm:ss ngày DD/MM/YYYY')}</CardDescription>
-                <PDFDownloadLink
-                    key={order.orderId}
-                    className="absolute right-6"
-                    document={<InvoicePDF order={order} user={user} />}
-                    fileName={`SS_hoa_don ${order.orderId}.pdf`}
-                >
-                    <Button>
-                        <Printer />
-                        <span className="hidden xl:inline">In hóa đơn</span>
-                    </Button>
-                </PDFDownloadLink>
-            </CardHeader>
-            <CardContent>
+        <Dialog open={open} onOpenChange={setOpen}>
+            <DialogContent className="min-w-3xl md:min-w-4xl">
+                <DialogHeader>
+                    <DialogTitle>Thông tin đơn hàng</DialogTitle>
+                    <DialogDescription>
+                        Thông tin chi tiết về khách hàng, sản phẩm, lịch sử cập nhật,... của đơn hàng.
+                    </DialogDescription>
+                </DialogHeader>
+                <Separator />
+
                 <div
-                    className="bg-primary-foreground mx-auto mb-2 flex w-fit items-center justify-center gap-6 rounded-full border-4 px-6"
+                    className="bg-primary-foreground mx-auto flex w-fit items-center justify-center gap-6 rounded-full border-4 px-6"
                     style={{
                         borderColor: order.status.color,
                         color: order.status.color
@@ -55,42 +56,11 @@ const OrderCard = ({ order }: OrderCardProps) => {
                     <span className="py-2 text-xl font-semibold">{formatCurrency(order.totalAmount)}</span>
                 </div>
 
-                <Accordion type="multiple" className="w-full" defaultValue={['item-1', 'item-2']}>
+                <Accordion type="multiple" className="max-h-[420px] w-full overflow-y-auto" defaultValue={['item-1']}>
                     <AccordionItem value="item-1">
                         <AccordionTrigger className="hover:bg-muted/50 cursor-pointer items-center px-4">
                             <div className="flex flex-col">
-                                <h4 className="text-lg font-semibold">1. Thông tin khách hàng</h4>
-                                <span className="text-muted-foreground text-sm">
-                                    Thông tin về tài khoản khách hàng đã tạo đơn.
-                                </span>
-                            </div>
-                        </AccordionTrigger>
-                        <AccordionContent>
-                            <div className="flex gap-12 p-4">
-                                <div className="border-primary flex w-full max-w-[100px] items-center justify-center rounded-full border-4 p-1">
-                                    <img
-                                        src={user!.avatar || '/images/upload-icon.jpg'}
-                                        className="bg-primary-foreground aspect-square h-full w-full rounded-full object-cover"
-                                    />
-                                </div>
-                                <div className="flex flex-1 flex-col gap-4 text-base">
-                                    <div className="text-card-foreground">
-                                        <span className="font-medium">1.1. Họ và tên: </span>
-                                        {user!.name}
-                                    </div>
-                                    <div className="text-card-foreground">
-                                        <span className="font-medium">1.2. Email: </span>
-                                        {user!.email ?? '(Chưa cập nhật)'}
-                                    </div>
-                                </div>
-                            </div>
-                        </AccordionContent>
-                    </AccordionItem>
-
-                    <AccordionItem value="item-2">
-                        <AccordionTrigger className="hover:bg-muted/50 cursor-pointer items-center px-4">
-                            <div className="flex flex-col">
-                                <h4 className="text-lg font-semibold">2. Thông tin đơn hàng</h4>
+                                <h4 className="text-lg font-semibold">1. Thông tin đơn hàng</h4>
                                 <span className="text-muted-foreground text-sm">
                                     Số lượng và chi tiết phân loại các sản phẩm trong đơn hàng.
                                 </span>
@@ -101,10 +71,10 @@ const OrderCard = ({ order }: OrderCardProps) => {
                         </AccordionContent>
                     </AccordionItem>
 
-                    <AccordionItem value="item-3">
+                    <AccordionItem value="item-2">
                         <AccordionTrigger className="hover:bg-muted/50 cursor-pointer items-center px-4">
                             <div className="flex flex-col">
-                                <h4 className="text-lg font-semibold">3. Thông tin nhận hàng</h4>
+                                <h4 className="text-lg font-semibold">2. Thông tin nhận hàng</h4>
                                 <span className="text-muted-foreground text-sm">
                                     Phương thức nhận hàng và thông tin vận chuyển (nếu có).
                                 </span>
@@ -112,7 +82,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
                         </AccordionTrigger>
                         <AccordionContent className="flex flex-1 flex-col gap-4 p-4 text-base">
                             <div className="text-card-foreground flex justify-between gap-6">
-                                <span className="font-medium">3.1. Phương thức nhận hàng: </span>
+                                <span className="font-medium">2.1. Phương thức nhận hàng: </span>
                                 <span>
                                     {isDelivery ? 'Vận chuyển qua đường bưu điện.' : 'Nhận trực tiếp tại cửa hàng.'}
                                 </span>
@@ -121,15 +91,15 @@ const OrderCard = ({ order }: OrderCardProps) => {
                             {isDelivery && (
                                 <>
                                     <div className="text-card-foreground flex justify-between gap-10">
-                                        <span className="shrink-0 font-medium">3.2. Họ và tên người nhận: {}</span>
+                                        <span className="shrink-0 font-medium">2.2. Họ và tên người nhận: {}</span>
                                         <span className="text-end">{order.recipientName}</span>
                                     </div>
                                     <div className="text-card-foreground flex justify-between gap-10">
-                                        <span className="font-medium">3.3. Số điện thoại người nhận: {}</span>
+                                        <span className="font-medium">2.3. Số điện thoại người nhận: {}</span>
                                         <span className="text-end">{order.deliveryPhone}</span>
                                     </div>
                                     <div className="text-card-foreground flex justify-between gap-10">
-                                        <span className="shrink-0 font-medium">3.4. Địa chỉ nhận hàng: {}</span>
+                                        <span className="shrink-0 font-medium">2.4. Địa chỉ nhận hàng: {}</span>
                                         <span className="text-end">{order.deliveryAddress}</span>
                                     </div>
                                 </>
@@ -137,10 +107,10 @@ const OrderCard = ({ order }: OrderCardProps) => {
                         </AccordionContent>
                     </AccordionItem>
 
-                    <AccordionItem value="item-4">
+                    <AccordionItem value="item-3">
                         <AccordionTrigger className="hover:bg-muted/50 cursor-pointer items-center px-4">
                             <div className="flex flex-col">
-                                <h4 className="text-lg font-semibold">4. Thông tin khác</h4>
+                                <h4 className="text-lg font-semibold">3. Thông tin khác</h4>
                                 <span className="text-muted-foreground text-sm">
                                     Thông tin về ghi chú và mã giảm giá (nếu có).
                                 </span>
@@ -148,11 +118,11 @@ const OrderCard = ({ order }: OrderCardProps) => {
                         </AccordionTrigger>
                         <AccordionContent className="flex flex-1 flex-col gap-4 p-4 text-base">
                             <div className="text-card-foreground flex justify-between gap-10">
-                                <span className="shrink-0 font-medium">4.1. Ghi chú đơn hàng: {}</span>
+                                <span className="shrink-0 font-medium">3.1. Ghi chú đơn hàng: {}</span>
                                 <span className="text-end">{order.note || '(Không có)'}</span>
                             </div>
                             <div className="text-card-foreground flex justify-between gap-10">
-                                <span className="shrink-0 font-medium">4.2. Thời gian giao hàng: {}</span>
+                                <span className="shrink-0 font-medium">3.2. Thời gian giao hàng: {}</span>
                                 <span className="text-end">
                                     {order.deliveredAt
                                         ? dayjs(order.deliveredAt).format('HH:mm:ss ngày DD/MM/YYYY')
@@ -160,7 +130,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
                                 </span>
                             </div>
                             <div className="text-card-foreground flex justify-between gap-10">
-                                <span className="shrink-0 font-medium">4.3. Thời gian đổi trả: {}</span>
+                                <span className="shrink-0 font-medium">3.3. Thời gian đổi trả: {}</span>
                                 <span className="text-end">
                                     {order.refundedAt
                                         ? dayjs(order.refundedAt).format('HH:mm:ss ngày DD/MM/YYYY')
@@ -170,7 +140,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
                             {order.coupon != null ? (
                                 <>
                                     <div className="text-card-foreground flex justify-between gap-10">
-                                        <span className="shrink-0 font-medium">4.4. Mã giảm giá: {}</span>
+                                        <span className="shrink-0 font-medium">3.4. Mã giảm giá: {}</span>
                                         <Badge variant="default">
                                             <TicketCheck /> {order.coupon.code.toUpperCase()} -{' '}
                                             {order.coupon.type === 'FIXED'
@@ -181,17 +151,17 @@ const OrderCard = ({ order }: OrderCardProps) => {
                                 </>
                             ) : (
                                 <div className="text-card-foreground flex justify-between gap-10">
-                                    <span className="shrink-0 font-medium">4.2. Mã giảm giá: {}</span>
+                                    <span className="shrink-0 font-medium">3.2. Mã giảm giá: {}</span>
                                     <span className="text-end">(Không có)</span>
                                 </div>
                             )}
                         </AccordionContent>
                     </AccordionItem>
 
-                    <AccordionItem value="item-5">
+                    <AccordionItem value="item-4">
                         <AccordionTrigger className="hover:bg-muted/50 cursor-pointer items-center px-4">
                             <div className="flex flex-col">
-                                <h4 className="text-lg font-semibold">5. Thông tin trạng thái</h4>
+                                <h4 className="text-lg font-semibold">4. Thông tin trạng thái</h4>
                                 <span className="text-muted-foreground text-sm">
                                     Thông tin về lịch sử cập nhật trạng thái của đơn hàng.
                                 </span>
@@ -202,9 +172,16 @@ const OrderCard = ({ order }: OrderCardProps) => {
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>
-            </CardContent>
-        </Card>
+                <Separator />
+
+                <DialogFooter>
+                    <DialogClose asChild>
+                        <Button variant="outline">Đóng</Button>
+                    </DialogClose>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
     )
 }
 
-export default OrderCard
+export default ViewOrderDialog
