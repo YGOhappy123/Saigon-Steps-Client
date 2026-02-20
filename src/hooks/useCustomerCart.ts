@@ -57,7 +57,7 @@ const useCustomerCart = () => {
     }, [detailedProductItems])
 
     const detailedCart = useMemo<DetailedCart | null>(() => {
-        if (!cart || fetchDetailedProductItemsQuery.isLoading || detailedProductItems.length === 0) return null
+        if (!cart || fetchDetailedProductItemsQuery.isLoading || productMap.size === 0) return null
 
         const detailedCartItems = cart.items.map(item => {
             const productItemData = productMap.get(item.productItemId)
@@ -72,7 +72,7 @@ const useCustomerCart = () => {
             }
         })
         return { ...cart, items: detailedCartItems } as DetailedCart
-    }, [cart, detailedProductItems])
+    }, [cart, fetchDetailedProductItemsQuery.isLoading, productMap])
 
     const totalCount = useMemo(() => {
         if (!detailedCart) return 0
