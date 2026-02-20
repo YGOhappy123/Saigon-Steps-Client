@@ -48,12 +48,19 @@ const useCustomerCart = () => {
         select: res => res.data
     })
     const detailedProductItems = fetchDetailedProductItemsQuery.data?.data ?? []
+    const productMap = useMemo(() => {
+        const map = new Map<number, DetailedProductItem>()
+        detailedProductItems.forEach(item => {
+            map.set(item.productItemId, item)
+        })
+        return map
+    }, [detailedProductItems])
 
     const detailedCart = useMemo<DetailedCart | null>(() => {
         if (!cart || fetchDetailedProductItemsQuery.isLoading || detailedProductItems.length === 0) return null
 
         const detailedCartItems = cart.items.map(item => {
-            const productItemData = detailedProductItems.find(_item => _item.productItemId === item.productItemId)
+            const productItemData = productMap.get(item.productItemId)
             const availableStock = productItemData!.rootProduct.productItems?.find(
                 _pi => _pi.productItemId === item.productItemId
             )!.availableStock
